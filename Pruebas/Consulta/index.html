@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Primera pagina con HTML</title> 
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>¿Es el título principal?</h1>
+    <h2>¿Es el sub-título principal?</h2>
+    <h3>¿Es el sub-sub-título principal?</h3>
+    <h4>¿Es el sub-sub-sub-título principal?</h4>
+    <h5>¿Es el sub-sub-sub-sub-título principal?</h5>
+    <h6>¿Es el sub-sub-sub-sub-sub-título principal?</h6>
+    <!-- Esto es un comentario, solo hay 6 titulos-->
+
+    <p>Esto es un parrafo según dice el </p>
+    <p>que esta en este dichoso curso</p>
+    <!-- Las "<p>" son para parrafos-->
+
+    <hr>
+    <!-- El "<hr>" es para agregar un separador-->
+    <h3>¿Es el sub-sub-sub-sub-sub-título principal?</h3>
+    <p>
+        Esto es un parrafo <span style="color: blue;"> algo padre que </span><br>
+        según dice el que esto esta muy padre pero realmente no se si asi lo sea
+    </p>
+    <!--El <sapn> es para resaltar el texto dentro de estos
+        "<br>" es un salto de linea-->
+    
+    <a href="https://www.google.com">Ir a google</a><br><br>
+    <!-- "<a> href=" Link o archivo" " Es un redireccionamiento a alguna 
+        pagina o archivo sobre la misma venta donde se encuentra el link-->
+
+    <a target="_blank" href="https://www.google.com">Ir a google</a><br><br>
+    <!--Lo mismo que lo anterior pero abre el link en una nueva pestaña-->
+
+    <img src="img/Fondo.jpg" width="400"/><br><br>
+    <img src="https://www.latercera.com/resizer/8VfIMYtYDAOQmELrcDsaiXupA7A=/900x600/smart/cloudfront-us-east-1.images.arcpublishing.com/copesa/CQYRSW443NALVDQJ5RDNFB7YZY.jpg" 
+    height="400" width="400"/><br><br>
+    <!--Esto es para imagenes se puede poner un link directo a la imagen
+    o cargarlo directamente desde la pc, el " width="400" " es para cambiar el tamaño 
+    de la imagen en px de alto*ancho por igual " height="400" width="400" " son 
+    para el alto y ancho-->
+
+    <form action="/formulario.php" method="Post"> <!--Aqui empiezan los formularios para las entradas de datos-->
+        <label for="Nombre">Nombre</label><!--Una etiqueca cualquiero, simple texto. El " for=" " es para redireccionar al
+            a un input que tenga el mismo nombre de id"-->
+        <input type="text" id="Nombre" name="Nombre" placeholder="Ingrese su nombre"/> <br><br>
+        <!--Este es un campo de texto, name es como se llama este input, el placeholder es la leyenda que sale 
+        para indicar que se debe poner en ese campo, el type por default es text pero puede ser boton, email, password,
+        radio(un boton circular). un checkbox, file(que es para subir archivos)-->
+        
+        <label for="Apellido">Apellido</label>
+        <input value="Anonimo" type="text" id="Apellido" name="Apellido" placeholder="Ingrese su Apellido"/> <br><br>
+        <!--"value="Anonimo"" es un valor por defecto en los campos"-->
+
+        <label for="Comentario">Comentario</label> <br>
+        <textarea rows="10" cols="50" id="Comentario" name="Comentario" placeholder="Comentario">Este es un valor por defecto</textarea><br><br>
+        <!--Es un campo para comentarios, se puede dimensionar a nuestro gusto con "rows="" para filas. 
+        "cols="" " para columnas-->
+
+        <input type="submit" /><br><br>
+        <!--Es un boton que al oprimir enviara todos los datos de nuestro formulario
+        a un lugar, se puede especificar a donde con "action="" "debe estar al inicio con el form y se especifica
+        el archivo al que se cargaran los datos con "method="" se puede usar "GET" enviara los valores que hay dentro de los campos
+        atravez de la URL o "POST". "GET" No oculta los datos en el link pero "POST" si. "POST" es mas factibles
+        para cuando son URL´s largas-->
+    
+        <button type="button"><img src="">Guardar</button>
+        <!--Solo es un botn sin accion, el comportamiento se debe aplicar con JS-->
+        <button type="reset">Borrar</button>
+        <!--Es para limpiar todos los campos en el formularios y dejarlos como los tenia inicialmente-->
+        <button type="submit">Enviar</button><br>
+        <!--Enviara el formulario a la ruta que le especificamos en el action -->
+
+        <ul><!--"ul" Es una lista no ordenada, cada que le pongamos algo aparecerran con un punto negro-->
+            <li>Elemento 1</li>
+            <li>Elemento 2</li>
+            <li>Elemento 3</li>
+            <li>Elemento 4</li>
+            <li>Elemento 5</li>
+            <li>Elemento 6</li>
+            <li>Elemento 7</li>
+            <!--"li" es elemento de la lista-->
+        </ul>
+
+        <ol><!--"ol" Es una lista ordenada, cada que le pongamos algo aparecerran con un numero-->
+            <li value="50">Elemento 1</li>
+            <li>Elemento 2</li>
+            <li>Elemento 3</li>
+            <li>Elemento 4</li>
+            <li>Elemento 5</li>
+            <li>Elemento 6</li>
+            <li>Elemento 7</li>
+            <li> <!--Esto es para anidar listas-->
+                <ol>
+                    <li style="list-style-type: lower-roman ;">Elemento 2</li>
+                    <li style="list-style-type: lower-roman ;">Elemento 3</li>
+                    <li style="list-style-type: lower-roman ;">Elemento 4</li>
+                    <li style="list-style-type: lower-roman ;">Elemento 5</li>
+                    <li style="list-style-type: lower-roman ;">Elemento 6</li>
+                    <li style="list-style-type: lower-roman ;">Elemento 7</li>
+                    <!--style="list-style-type: lower-alpha ;" es para indicar con que quiere empezar: número, letra, etc...-->
+                    
+                </ol>
+            </li>
+            <!--"li" es elemento de la lista, si le pongo el "value="" " es para indicar con que numero empieza la lista-->
+        <ol/><br><br>
+
+        <!--Tablas-->
+        <table style="width: 500px;"><!--Es para crear una tabla, border... pues es el borde-->
+            <thead>
+                <tr><!--Una fila en la tabla-->
+                    <th>Producto</th> 
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <!--Caberceras de las columnas y son columnas-->
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Leche</td>
+                    <td>23</td>
+                    <td>12</td>
+                    <!--Son los elementos dentro de la columna en orden a las cabeceras y son cabeceras-->
+                </tr>
+                <tr>
+                    <td>Huevo</td>
+                    <td>42</td>
+                    <td>5</td>
+                    <!--Son los elementos dentro de la columna en orden a las cabeceras y son cabeceras-->
+                </tr>
+                <tr>
+                    <td>Platano de macaco albino</td>
+                    <td>666</td>
+                    <td>-1</td>
+                    <!--Son los elementos dentro de la columna en orden a las cabeceras y son cabeceras-->
+                </tr>
+            </tbody>
+            <tfoot>
+                <td></td>
+                <td>Total: 49.8</td>
+            </tfoot>
+
+        </table>
+        
+
+
+    </form>
+    
+
+</body>
+</html>
