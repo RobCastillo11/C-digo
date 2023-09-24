@@ -1,0 +1,51 @@
+#titulo {
+    color:blue
+}
+/*Se puede poner directamente la etiqueta "h1" para 
+referirse al titulo pero sera ne general para estos
+en cambio si colocamos un "#" seguido del id del objeto, 
+estos estilos solo se le aplicaran al que tenga el id*/
+
+p.texto {
+    color: chocolate;
+}
+/*Esto es lo mismo que lo anterior, solo que sin el gato,
+pero como son clases se le coloca el "." seguido del nombre
+de la clase para referir a todo lo que pertenezca a esta*/
+
+p.especial {
+    color: blueviolet;
+}
+/*Dependiendo del orden del css se van a anteponer a lo anterior*/
+
+div p {
+    color: cornflowerblue;
+}
+/*Esto es para todo lo que este dentro de "div" seguido del 
+tipo de etiqueta recibira los valores*/
+
+div h2, div h3 {
+    color: aqua;
+}
+/*Para seleccionar varios elementos a la vez*/
+
+* {
+    font-size: 24px; /*Tamaño de la fuente*/
+    color: black; /*Color de la fuente*/
+}
+/* Con "*" se selecciona absolutamente todo y "font-size: 24px;" es para
+cambiar el tamaño de la fuente, el color sera el por defecto, si  no se ha
+aplicado color de forma separada a los demas elementos, el color aqui sera
+el predeterminada para dicho elemento*/
+
+.color{
+    /*border: 5px black solid;/* Es el borde, tamña y estilo*/
+    /*color: palevioletred; /*Se puede usar haxadecimal, rgb, nombres del color y hsl*/
+    border-style: double; /* El estilo tipo, sin necesidad de indicar ancho y color del borde*/
+    border-color: blueviolet; /*Color del borde*/
+    border-radius: 5px; /*Para curvar las esquinas de los bordes*/
+    border-width: 5px; /*Ancho del borde*/
+    /*Tipos de unidades de que CSS: 1cm - 1mm - 1in - 1pt - 1pc - 1em (tamaño de la fuente)*/
+}
+
+
