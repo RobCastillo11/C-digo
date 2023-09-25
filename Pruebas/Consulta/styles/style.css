@@ -48,4 +48,11 @@ el predeterminada para dicho elemento*/
     /*Tipos de unidades de que CSS: 1cm - 1mm - 1in - 1pt - 1pc - 1em (tamaño de la fuente)*/
 }
 
+#fondo{
+    background-color: burlywood; /*Color del fondo con los mismo fomartos de color y o imagenes*/
+    opacity: 1; /*Es para indidar la opacidad de todo lo que esta en el fondo*/
+    background-image: url('../img/Fondo.jpg');
+    /*height: 40px;*/
+    background-size: auto;
+}
 

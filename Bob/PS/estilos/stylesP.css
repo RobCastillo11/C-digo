@@ -1,0 +1,133 @@
+/* Fondo y estilos generales */
+html {
+  background-color: #ecf0ec;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/* Imágenes */
+img {
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+
+/* Encabezado */
+h1 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  position: relative;
+  margin-top: 0px;
+  text-align: center;
+  font-size: 32px;
+  color: #ddd;
+  text-shadow: 3px 3px 10px #000;
+}
+
+/* Inputs */
+input {
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-decoration: none;
+  position: relative;
+  width: 80%;
+  display: block;
+  margin: 9px auto;
+  font-size: 17px;
+  color: #fff;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(3, 3, 3, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 3px 3px 10px #333;
+  background: rgba(3, 3, 3, 0.18);
+}
+
+/* Placeholder */
+::-webkit-input-placeholder {
+  color: #ddd;
+}
+
+:-moz-placeholder {
+  color: red;
+}
+
+::-moz-placeholder {
+  color: red;
+}
+
+:-ms-input-placeholder {
+  color: #333;
+}
+
+body {
+    text-align: center;
+    }
+
+.container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(200, 200, 200, 0.25);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+form {
+    text-align: left; /* Restablece el texto a la izquierda dentro del formulario */
+    margin: 0; /* Elimina el margen predeterminado del formulario */
+}
+
+form label, form input[type="password"], form input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+}
+
+.error {
+    color: red;
+}
+
+/* Logo 1 (parte superior izquierda) */
+.logo-top-left {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  /* Ajusta el tamaño según sea necesario */
+  width: 200px; /* Aumenté el tamaño */
+}
+
+/* Logo 2 (parte superior derecha) */ 
+.logo-top-right {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  /* Ajusta el tamaño según sea necesario */
+  width: 300px; /* Aumenté el tamaño */
+}
+
+/* Logo 3 (parte inferior de la página) */
+.logo-bottom {
+  position: absolute;
+  bottom: 0; /* Coloca el logo en la parte inferior */
+  left: 0;
+  right: 0;
+  /* Ajusta el tamaño para que cubra toda la página */
+  width: 100%; /* Ocupa todo el ancho */
+  height: 7vh; /* Ajusta la altura según tus preferencias (10% de la altura de la ventana) */
+  max-width: none; /* Desactiva la restricción de ancho máximo */
+  max-height: none; /* Desactiva la restricción de altura máxima */
+  transform: none; /* Elimina la transformación */
+}
