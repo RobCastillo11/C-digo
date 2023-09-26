@@ -86,132 +86,158 @@ session_start(); // Inicia la sesión
       </div>
 
 
-    <div id="Consult" class="pestaña contenido-oculto">
-      <h2>Consulta de Empleados</h2>
+      <div id="Consult" class="pestaña contenido-oculto">
+        <h2>Consulta de Empleados</h2>
+        <div class="row g-4">
+          <!-- Tu formulario de búsqueda y selección de registros va aquí -->
+          <div class="col">
+            <div class="form-row">
+              <div class="col-auto">
+                <label for="num_registros" class="col-form-label">Mostrar:</label>
+              </div>
+              <div class="col-auto">
+                <select name="num_registros" id="num_registros" class="form-select">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                </select>
+              </div>
+              <div class="col-auto">
+                <label for="num_registros" class="col-form-label">registros</label>
+              </div>
+              <div class="col-5"></div>
+              <div class="col-auto">
+                <label for="campo" class="col-form-label">Buscar:</label>
+              </div>
+              <div class="col-auto">
+                <input type="text" name="campo" id="campo" class="form-control">
+              </div>
+            </div>
+            <table class="table consult">
+              <thead>
+                <tr>
+                  <th>No Empleado</th>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Fecha de Nacimiento</th>
+                  <th>Fecha de registro</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="content"></tbody>
+            </table>
 
-      <div class="row g-4">
+            <div class="row">
+              <div class="col-6">
+                <label id="lbl-total"></label>
+              </div>
+              <div class="col-6" id="nav-paginacion"></div>
+            </div>
 
-        <div class="col-auto">
-          <label for="num_registros" class="col-form-label"->Mostrar:</label>
+            <script>
+              let paginaActual = 1;
+              getData(paginaActual);
+
+              document.getElementById("campo").addEventListener("keyup", function () {
+                getData(1)
+              }), false;
+
+              document.getElementById("num_registros").addEventListener("change", function () {
+                getData(paginaActual)
+              }), false;
+
+              function getData(pagina) {
+                let input = document.getElementById("campo").value
+                let num_registros = document.getElementById("num_registros").value
+                let content = document.getElementById("content")
+                let lblTotal = document.getElementById("lbl-total")
+                let navPaginacion = document.getElementById("nav-paginacion")
+
+                if(pagina != null){
+                  paginaActual = pagina
+                }
+
+                let url = "consulta_empleado.php"
+                let formData = new FormData()
+                formData.append('campo', input)
+                formData.append('registros', num_registros)
+                formData.append('pagina', paginaActual)
+
+                // Limpiar la tabla antes de agregar nuevos datos
+                content.innerHTML = '';
+
+                fetch(url, {
+                  method: "POST",
+                  body: formData
+                }).then(Response => Response.json())
+                  .then(data => {
+                    if (data.data.length > 0) {
+                      data.data.forEach(rowData => {
+                        // Crear una nueva fila
+                        let row = document.createElement("tr");
+
+                        // Agregar celdas con los datos
+                        let noEmpleadoCell = document.createElement("td");
+                        noEmpleadoCell.textContent = rowData.NO_EMPLEADO;
+                        row.appendChild(noEmpleadoCell);
+
+                        let nombreCell = document.createElement("td");
+                        nombreCell.textContent = rowData.NOMBRE;
+                        row.appendChild(nombreCell);
+
+                        let apellidoCell = document.createElement("td");
+                        apellidoCell.textContent = rowData.AP;
+                        row.appendChild(apellidoCell);
+
+                        let fnCell = document.createElement("td");
+                        fnCell.textContent = rowData.FN;
+                        row.appendChild(fnCell);
+
+                        let fechaRegistroCell = document.createElement("td");
+                        fechaRegistroCell.textContent = rowData.fecha_registro;
+                        row.appendChild(fechaRegistroCell);
+
+                        // Agregar botón de "Modificar"
+                        let modificarCell = document.createElement("td");
+                        let modificarButton = document.createElement("button");
+                        modificarButton.textContent = "Modificar";
+                        modificarCell.appendChild(modificarButton);
+                        row.appendChild(modificarCell);
+
+                        // Agregar botón de "Consultar"
+                        let consultarCell = document.createElement("td");
+                        let consultarButton = document.createElement("button");
+                        consultarButton.textContent = "Consultar";
+                        consultarCell.appendChild(consultarButton);
+                        row.appendChild(consultarCell);
+
+                        // Agregar la fila a la tabla
+                        content.appendChild(row);
+                      });
+
+                      // Mostrar el número de registros y la paginación
+                      lblTotal.textContent = 'Mostrando ' + data.totalFiltro +
+                        ' de ' + data.totalRegistros + ' registros ';
+                      navPaginacion.innerHTML = data.paginacion;
+                    } else {
+                      // Si no hay resultados, mostrar un mensaje
+                      let noResultsRow = document.createElement("tr");
+                      let noResultsCell = document.createElement("td");
+                      noResultsCell.colSpan = 7;
+                      noResultsCell.textContent = "Sin resultados";
+                      noResultsRow.appendChild(noResultsCell);
+                      content.appendChild(noResultsRow);
+                      lblTotal.textContent = ''; // Ocultar el mensaje de registros
+                      navPaginacion.innerHTML = ''; // Ocultar la paginación
+                    }
+
+                    // Actualizar la paginación aquí si es necesario
+
+                  }).catch(err => console.log(err));
+              }
+            </script>
+            </div>
         </div>
-        <div class="col-auto">
-          <select name="num_registros" id="num_registros" class="form-select">
-            <option value="10">10</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-          </select>
-        </div>
-
-        <div class="col-auto">
-          <label for="num_registros" class="col-form-label"->registros</label>
-        </div>
-
-        <div class="col-auto">
-          <label for="campo" class="col-form-label"->Buscar:</label>
-        </div>
-        <div class="col-auto">
-          <input type="text" name="campo" id="campo" class="form-control">
-        </div>
-
-      </div>
-
-      <div class="row py-4">
-        <div class="col">
-          <table class="table consult">
-            <thead>
-              <th>No Empleado</th>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Fecha de Nacimiento</th>
-              <th>Fecha de registro</th>
-              <th></th>
-              <th></th>
-            </thead>
-
-            <tbody id="content">
-
-            </tbody>
-          </table>
-
-          <script>
-            getData();
-
-            document.getElementById("campo").addEventListener("keyup",getData)
-
-            function getData() {
-              let input = document.getElementById("campo").value;
-              let content = document.getElementById("content");
-              let url = "consulta_empleado.php";
-              let formData = new FormData();
-              formData.append('campo', input);
-
-              fetch(url, {
-                method: "POST",
-                body: formData
-              })
-                .then(response => response.json())
-                .then(data => {
-                  // Limpiar la tabla antes de agregar nuevos datos
-                  content.innerHTML = '';
-
-                  if (data.length > 0) {
-                    data.forEach(rowData => {
-                      // Crear una nueva fila
-                      let row = document.createElement("tr");
-
-                      // Agregar celdas con los datos
-                      let noEmpleadoCell = document.createElement("td");
-                      noEmpleadoCell.textContent = rowData.NO_EMPLEADO;
-                      row.appendChild(noEmpleadoCell);
-
-                      let nombreCell = document.createElement("td");
-                      nombreCell.textContent = rowData.NOMBRE;
-                      row.appendChild(nombreCell);
-
-                      let apellidoCell = document.createElement("td");
-                      apellidoCell.textContent = rowData.AP;
-                      row.appendChild(apellidoCell);
-
-                      let fnCell = document.createElement("td");
-                      fnCell.textContent = rowData.FN;
-                      row.appendChild(fnCell);
-
-                      let fechaRegistroCell = document.createElement("td");
-                      fechaRegistroCell.textContent = rowData.fecha_registro;
-                      row.appendChild(fechaRegistroCell);
-
-                      // Agregar botón de "Editar"
-                      let editarCell = document.createElement("td");
-                      let editarButton = document.createElement("button");
-                      editarButton.textContent = "Editar";
-                      editarCell.appendChild(editarButton);
-                      row.appendChild(editarCell);
-
-                      // Agregar botón de "Eliminar"
-                      let eliminarCell = document.createElement("td");
-                      let eliminarButton = document.createElement("button");
-                      eliminarButton.textContent = "Eliminar"; // Cambiado de "Borrar" a "Eliminar"
-                      eliminarCell.appendChild(eliminarButton);
-                      row.appendChild(eliminarCell);
-
-                      // Agregar la fila a la tabla
-                      content.appendChild(row);
-                    });
-                  } else {
-                    // Si no hay resultados, mostrar un mensaje
-                    let noResultsRow = document.createElement("tr");
-                    let noResultsCell = document.createElement("td");
-                    noResultsCell.colSpan = 7;
-                    noResultsCell.textContent = "Sin resultados";
-                    noResultsRow.appendChild(noResultsCell);
-                    content.appendChild(noResultsRow);
-                  }
-                })
-                .catch(err => console.log(err));
-            }
-          </script>
-        </div>
-    </div>
     
     <div id="edit" class="pestaña">
       <!-- Formulario de modificación -->
