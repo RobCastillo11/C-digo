@@ -56,123 +56,131 @@ nav a:hover {
   transition: background-color 0.3s ease;
 }
 
+/* Estilos para el contenido principal */
 #contenido {
-  padding: 20px; /* Aumentado el espacio de relleno */
+  padding: 20px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
-  /* Estilos para el menú desplegable */
-  #selectFormulario {
-    margin-bottom: 10px;
-  }
-
-  /* Estilos para los formularios */
-  .formulario {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    display: none;
-  }
-
-  /* Estilo para el formulario seleccionado */
-  .formulario.seleccionado {
-    display: block;
-  }
-
-
-  /* Estilos para las pestañas */
-.tabs {
-  display: flex;
+/* Estilos para la sección de consulta */
+#consulta {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
-.tablink {
-  background-color: #f2f2f2;
-  border: none;
+#consulta h2 {
+  font-size: 24px; /* Tamaño del encabezado */
+  color: #333; /* Color del texto del encabezado */
+  margin-bottom: 20px; /* Espacio entre el encabezado y la tabla */
+}
+
+/* Estilos para el formulario de búsqueda y selección */
+.col {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-row {
+  margin-bottom: 10px;
+}
+
+.form-select,
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Estilos para la tabla de resultados */
+.table {
+  width: 100%;
+}
+
+.table th,
+.table td {
+  text-align: center; /* Alineación del texto en el centro */
+  padding: 10px;
+}
+
+.table th {
+  background-color: #0e8a12; /* Color de fondo del encabezado de la tabla */
+  color: #fff; /* Color del texto del encabezado de la tabla */
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Color de fondo de filas pares */
+}
+
+/* Estilos para el botón de búsqueda */
+#btn-buscar {
+  background-color: #44ff3e;
+  color: #fff;
   padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.tablink:hover {
-  background-color: #ddd;
+#btn-buscar:hover {
+  background-color: #0e8a12; /* Cambia el color al pasar el mouse */
 }
 
-/* Estilos para los campos de formulario */
-.form-group label {
-  color: rgb(7, 252, 7); /* Cambia el color de las etiquetas de los campos */
+/* Estilos para la tabla */
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-.form-control {
-  background-color: #e9f5e9; /* Cambia el color de fondo de los campos de entrada */
-  border-color: green; /* Cambia el color del borde de los campos de entrada */
-  color: green; /* Cambia el color del texto de los campos de entrada */
+.table th,
+.table td {
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
 }
 
+.table th {
+  background-color: #007bff; /* Color de fondo para las celdas de encabezado */
+  color: #fff; /* Color del texto en las celdas de encabezado */
+}
 
-    .bottom-header img {
-      width: 100%; /* Ajusta el tamaño del logo para que cubra todo el encabezado */
-      height: auto;
-    }
+.table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Color de fondo para filas impares */
+}
 
-    /* Estilos para el carrusel de imágenes */
-  .carousel {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -10; /* Coloca el carrusel detrás del contenido */
-    }
+/* Estilos para los botones */
+#modificarButton {
+  background-color: #28a745; /* Color verde para los botones */
+  color: #fff; /* Color del texto en los botones */
+  border: none;
+}
 
-    .carousel-item {
-      opacity: 0.1; /* Opacidad de las imágenes */
-      transition: opacity 1s;
-    }
+#consultarButton {
+  background-color: #007bff; /* Color azul para los botones */
+  color: #fff; /* Color del texto en los botones */
+  border: none;
+}
 
-    .carousel-item.active {
-      opacity: 1;
-    }
+/* Estilos para el formulario de búsqueda y selección de registros */
+#campo {
+  width: 100%;
+}
 
-  .small-form {
-        font-size: 14px;
-      }
-      .small-input {
-        font-size: 12px;
-        padding: 5px;
-        width: 180px;
-        height: 30px;
-      }
-      
-      .small-label {
-        font-size: 14px;
-      }
+/* Estilos para la paginación */
+#nav-paginacion {
+  text-align: center;
+}
 
-      .small-input2 {
-        font-size: 12px;
-        padding: 5px;
-        width: 260px;
-        height: 30px;
-      }
+/* Estilos para el mensaje de registros */
+#lbl-total {
+  font-weight: bold;
+}
 
-      .small-label2 {
-        font-size: 14px;
-      }
-
-      .mt-5{
-        margin-bottom: 70px;
-      }
-
-      .contenido-oculto {
-        display: none;
-    }
-
-    table, th, td{
-      border: 1px solid;
-    }
-
-    table{
-      width: 80%;
-      border-collapse: collapse;
-    }

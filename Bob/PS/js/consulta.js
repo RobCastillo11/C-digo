@@ -37,54 +37,58 @@ function getData(pagina) {
         .then(data => {
         if (data.data.length > 0) {
             data.data.forEach(rowData => {
-            // Crear una nueva fila
-            let row = document.createElement("tr");
+                // Crear una nueva fila
+                let row = document.createElement("tr");
 
-            // Agregar celdas con los datos
-            let noEmpleadoCell = document.createElement("td");
-            noEmpleadoCell.textContent = rowData.NO_EMPLEADO;
-            row.appendChild(noEmpleadoCell);
+                // Agregar celdas con los datos
+                let noEmpleadoCell = document.createElement("td");
+                noEmpleadoCell.textContent = rowData.NO_EMPLEADO;
+                row.appendChild(noEmpleadoCell);
 
-            let nombreCell = document.createElement("td");
-            nombreCell.textContent = rowData.NOMBRE;
-            row.appendChild(nombreCell);
+                let nombreCell = document.createElement("td");
+                nombreCell.textContent = rowData.NOMBRE;
+                row.appendChild(nombreCell);
 
-            let apellidoCell = document.createElement("td");
-            apellidoCell.textContent = rowData.AP;
-            row.appendChild(apellidoCell);
+                let apellidoCell = document.createElement("td");
+                apellidoCell.textContent = rowData.AP;
+                row.appendChild(apellidoCell);
 
-            let fnCell = document.createElement("td");
-            fnCell.textContent = rowData.FN;
-            row.appendChild(fnCell);
+                let fnCell = document.createElement("td");
+                fnCell.textContent = rowData.FN;
+                row.appendChild(fnCell);
 
-            let fechaRegistroCell = document.createElement("td");
-            fechaRegistroCell.textContent = rowData.fecha_registro;
-            row.appendChild(fechaRegistroCell);
+                let fechaRegistroCell = document.createElement("td");
+                fechaRegistroCell.textContent = rowData.fecha_registro;
+                row.appendChild(fechaRegistroCell);
 
-            // Agregar botón de "Modificar"
-            let modificarCell = document.createElement("td");
-            let modificarButton = document.createElement("button");
-            modificarButton.textContent = "Modificar";
-            modificarButton.addEventListener("click", function () {
-                // Redireccionar a la página de modificar con el ID de empleado
-                window.location.href = "modificar.php?NO_EMPLEADO=" + rowData.NO_EMPLEADO;
-            });
-            modificarCell.appendChild(modificarButton);
-            row.appendChild(modificarCell);
+                // Agregar botón de "Modificar"
+                let modificarCell = document.createElement("td");
+                let modificarButton = document.createElement("button");
+                modificarButton.textContent = "Modificar";
+                modificarButton.id = "modificarButton"; // Asignar un ID al botón
+                modificarButton.className = "btn btn-primary"; // Agregar la clase "btn btn-primary" al botón
+                modificarButton.addEventListener("click", function () {
+                    // Redireccionar a la página de modificar con el ID de empleado
+                    window.location.href = "modificar.php?NO_EMPLEADO=" + rowData.NO_EMPLEADO;
+                });
+                modificarCell.appendChild(modificarButton);
+                row.appendChild(modificarCell);
 
-            // Agregar botón de "Consultar"
-            let consultarCell = document.createElement("td");
-            let consultarButton = document.createElement("button");
-            consultarButton.textContent = "Consultar";
-            consultarButton.addEventListener("click", function () {
-                // Redireccionar a la página de consultar con el ID de empleado
-                window.location.href = "consultar.php?NO_EMPLEADO=" + rowData.NO_EMPLEADO;
-            });
-            consultarCell.appendChild(consultarButton);
-            row.appendChild(consultarCell);
+                // Agregar botón de "Consultar"
+                let consultarCell = document.createElement("td");
+                let consultarButton = document.createElement("button");
+                consultarButton.textContent = "Consultar";
+                consultarButton.id = "consultarButton"; // Asignar un ID al botón
+                consultarButton.className = "btn btn-primary"; // Agregar la clase "btn btn-primary" al botón
+                consultarButton.addEventListener("click", function () {
+                    // Redireccionar a la página de consultar con el ID de empleado
+                    window.location.href = "consultar.php?NO_EMPLEADO=" + rowData.NO_EMPLEADO;
+                });
+                consultarCell.appendChild(consultarButton);
+                row.appendChild(consultarCell);
 
-            // Agregar la fila a la tabla
-            content.appendChild(row);
+                // Agregar la fila a la tabla
+                content.appendChild(row);
             });
 
             // Mostrar el número de registros y la paginación

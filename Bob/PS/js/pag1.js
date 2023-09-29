@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 // Función para mostrar el contenido de una pestaña y ocultar las demás
 
-
 function mostrarPestana(pestanaId) {
     const pestanas = document.querySelectorAll('.pestaña');
     pestanas.forEach(pestana => {
@@ -2650,7 +2649,7 @@ function funcionOpcion14() {
     inputElement.value = newValue ;
     no_empleado("NO_EMPLEADO_14");
 
-   const miSelect = document.getElementById("campo49");
+  const miSelect = document.getElementById("campo49");
   const formularioOriginal = document.getElementById("lol");
   const contenedorFormularios = formularioOriginal.parentNode;
 
@@ -2707,8 +2706,6 @@ campo49.addEventListener("change", function() {
     }
   });
 });
-
-
 }
 
 function funcionOpcion15() {
@@ -2717,15 +2714,11 @@ function funcionOpcion15() {
   inputElement.value = newValue ;
   no_empleado("NO_EMPLEADO_15");
 }
-
-
   
 var selectElement = document.getElementById("formSelector");
 selectElement.addEventListener("change", opcionSeleccionada);
 
-
 //consulta\\
-
 document.addEventListener("DOMContentLoaded", function () {
     // Obtén el elemento de la pestaña "Consulta"
     const pestañaConsulta = document.querySelector('a[href="#consulta"]');
@@ -2746,6 +2739,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // Muestra el contenido de la pestaña "Consulta"
         contenidoConsulta.classList.remove("contenido-oculto");
     });
+    
+
 });
 
 
