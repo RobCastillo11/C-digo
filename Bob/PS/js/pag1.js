@@ -242,8 +242,6 @@ const formTemplates = {
       </div>
     </div>
 
-
-
   <div class="col-md-2">
     <!-- Columna 3 -->
     <div class="form-group">
