@@ -1,4 +1,14 @@
-<?php
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Empleado</title>
+</head>
+<body>
+    <h1>Mostrar Datos de Empleado</h1>
+
+    <?php
     require 'database.php';
 
     if ($conn->connect_error) {
@@ -12,19 +22,9 @@
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta de Empleado</title>
-</head>
-<body>
-    <h1>Mostrar Datos de Empleado</h1>
+    ?>
     <!-- Empieza Formulario 1 Generales-->
-    <form id="form1" class="small-form" data-form-id="1" method="POST">
+    <form action="mostrar_datos.php" method="POST">
         <!-- Campo de texto para el NO_EMPLEADO -->
         <label for="noEmpleado">Número de Empleado:</label>
         <input type="text" id="noEmpleado" name="NO_EMPLEADO" required readonly value="<?php echo $row['NO_EMPLEADO']; ?>">
@@ -142,11 +142,6 @@
 
         <!-- Botón de guardar CONSIDERACIONES -->
         <button type="button"><img src="">Guardar</button>
-    </form>
-    
-    <!--Empíeza formulario 2 Datos Familiares-->
-    <form>
-
     </form>
 
     <?php
