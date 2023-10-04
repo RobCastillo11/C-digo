@@ -112,3 +112,4 @@ function getData(pagina) {
         }).catch(err => console.log(err));
 }
 
+

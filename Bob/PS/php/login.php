@@ -1,7 +1,7 @@
 <?php 
 require 'database.php'; // Archivo que contiene la conexión a la base de datos
 
-// Inicia la sesión
+// Inicia la sesión 
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

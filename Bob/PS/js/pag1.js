@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function mostrarPestana(pestanaId) {
     const pestanas = document.querySelectorAll('.pestaña');
-    pestanas.forEach(pestana => {
+    pestanas.forEach(pestana => { 
       pestana.style.display = 'none';
     });
   
@@ -2716,30 +2716,7 @@ function funcionOpcion15() {
 var selectElement = document.getElementById("formSelector");
 selectElement.addEventListener("change", opcionSeleccionada);
 
-//consulta\\
-document.addEventListener("DOMContentLoaded", function () {
-    // Obtén el elemento de la pestaña "Consulta"
-    const pestañaConsulta = document.querySelector('a[href="#consulta"]');
 
-    // Obtén el contenido de la pestaña "Consulta"
-    const contenidoConsulta = document.getElementById("consulta");
-
-    // Agrega un evento de clic a la pestaña "Consulta"
-    pestañaConsulta.addEventListener("click", function (e) {
-        e.preventDefault(); // Evita la navegación predeterminada de la pestaña
-
-        // Oculta todos los contenidos de pestañas
-        const contenidosPestañas = document.querySelectorAll(".pestaña");
-        contenidosPestañas.forEach(function (contenido) {
-            contenido.classList.add("contenido-oculto");
-        });
-
-        // Muestra el contenido de la pestaña "Consulta"
-        contenidoConsulta.classList.remove("contenido-oculto");
-    });
-    
-
-});
 
 
 

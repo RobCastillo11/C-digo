@@ -29,7 +29,7 @@
         $rowGenerales = $resultGenerales->fetch_assoc();
     ?>
         <section>
-            <h2>Datps Generales</h2>
+            <h2>Datos Generales</h2>
             <!-- Empieza Formulario 1 Generales-->
             <form action="php2/cons.php" method="POST">
                 <!-- Campo de texto para el NO_EMPLEADO -->

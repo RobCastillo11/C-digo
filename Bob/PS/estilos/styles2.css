@@ -20,7 +20,7 @@ input[type="text"] {
     width: 10%;
     padding: 0.5em;
     margin-bottom: 1em; /* Espaciado inferior más grande */
-}
+} 
 
 /* Estilos para el botón de guardar */
 button[type="button"] {

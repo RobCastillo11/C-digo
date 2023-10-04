@@ -9,6 +9,7 @@ session_start(); // Inicia la sesión
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../estilos/styles1.css">
+    
     <!-- Agrega tus propios estilos y scripts aquí -->
 </head>
 <body>
@@ -24,11 +25,12 @@ session_start(); // Inicia la sesión
 
 <nav>
     <ul class="pestanas">
-        <li><a href="pag1.php">Registro</a></li>
-        <li><a href="#consulta">Consulta</a></li>
+        <li><a href="javascript:void(0);" onclick="mostrarRegistro()">Registro</a></li>
+        <li><a href="javascript:void(0);" onclick="mostrarConsulta()">Consulta</a></li>
         <li class="logout"><a href="logout.php">Cerrar Sesión</a></li>
     </ul>
 </nav>
+
 
 <div id="mensajeResultado1"></div> <!-- Para el formulario 1 -->
 <div id="mensajeResultado2"></div>
@@ -48,7 +50,7 @@ session_start(); // Inicia la sesión
 
 <div id="contenido">
 
-    <div id="registro" class="pestaña">
+    <div id="registro" class="pestaña contenido-oculto">
         <div class="tab-content">
             <div class="form-selection">
                 <label for="formSelector">Seleccione una opción:</label>
@@ -125,6 +127,25 @@ session_start(); // Inicia la sesión
             </div>
         </div>
     </div>
+    <script>
+      // Función para mostrar el contenido de Registro
+      function mostrarRegistro() {
+            document.getElementById('registro').style.display = 'block';
+            document.getElementById('consulta').style.display = 'none';
+        }
+
+        // Función para mostrar el contenido de Consulta
+        function mostrarConsulta() {
+            document.getElementById('consulta').style.display = 'block';
+            document.getElementById('registro').style.display = 'none';
+        }
+
+        // Al cargar la página, asegúrate de que solo se muestre el contenido de Registro inicialmente
+        window.onload = function () {
+            mostrarRegistro();
+        };
+
+    </script>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
