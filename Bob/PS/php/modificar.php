@@ -19,7 +19,6 @@
 
     $noEmpleado = $_GET['NO_EMPLEADO'];
 
-    
     // Consulta los datos generales del empleado
     $sqlGenerales = "SELECT * FROM generales WHERE NO_EMPLEADO = '$noEmpleado'";
     $resultGenerales = $conn->query($sqlGenerales);
@@ -52,19 +51,22 @@
                 <input type="text" id="am" name="AM" value="<?php echo $rowGenerales ['AM']; ?>">
                 <br><br>
 
-                <!-- Campo de texto para el FN -->
+                <!-- Campo de Fecha de Nacimiento -->
                 <label for="fn" id="lfn">Fecha de Nacimiento:</label>
-                <input type="text" id="fn" name="FN" value="<?php echo $rowGenerales ['FN']; ?>">
+                <input type="date" id="fn" name="FN" value="<?php echo $rowGenerales['FN']; ?>">
                 <br><br>
 
                 <!-- Campo de texto para el EDAD -->
                 <label for="edad" id="ledad">Edad:</label>
-                <input type="text" id="edad" name="EDAD" value="<?php echo $rowGenerales ['EDAD']; ?>">
+                <input type="text" id="edad" name="EDAD" required readonly value="<?php echo $rowGenerales ['EDAD']; ?>">
                 <br><br>
 
-                <!-- Campo de texto para el SEXO -->
+                <!-- Campo de selección para el SEXO -->
                 <label for="sexo" id="lsexo">Sexo:</label>
-                <input type="text" id="sexo" name="SEXO" value="<?php echo $rowGenerales ['SEXO']; ?>">
+                <select class="" id="sexo" name="SEXO">
+                    <option value="M" <?php if ($rowGenerales['SEXO'] === 'M') echo 'selected'; ?>>Masculino</option>
+                    <option value="F" <?php if ($rowGenerales['SEXO'] === 'F') echo 'selected'; ?>>Femenino</option>
+                </select>
                 <br><br>
 
                 <!-- Campo de texto para el CORREO -->
@@ -283,7 +285,7 @@
     $sqlEvaluacion = "SELECT * FROM valucion_anual_desempeño WHERE NO_EMPLEADO_3 = '$noEmpleado'";
     $resultEvaluacion = $conn->query($sqlEvaluacion);
 
-    /* Consulta Formulario de Evaluación */
+    /* Consulta Formulario 3 de Evaluación */
     if ($resultEvaluacion->num_rows > 0) {
         $rowEvaluacion = $resultEvaluacion->fetch_assoc();
         ?>
@@ -334,7 +336,7 @@
     $sqlEstudio = "SELECT * FROM datos_de_estudio WHERE NO_EMPLEADO = '$noEmpleado'";
     $resultEstudio = $conn->query($sqlEstudio);
 
-    /* Consulta Formulario de Datos de Estudio */
+    /* Consulta Formulario 4 de Datos de Estudio */
     if ($resultEstudio->num_rows > 0) {
         $rowEstudio = $resultEstudio->fetch_assoc();
         ?>
@@ -450,7 +452,7 @@
     $sqlMilitares = "SELECT * FROM militares WHERE NO_EMPLEADO = '$noEmpleado'";
     $resultMilitares = $conn->query($sqlMilitares);
 
-    /* Consulta Formulario de Datos Militares */
+    /* Consulta Formulario 5 de Datos Militares */
     if ($resultMilitares->num_rows > 0) {
         $rowMilitares = $resultMilitares->fetch_assoc();
         ?>
@@ -506,7 +508,7 @@
     $sqlAfiliados = "SELECT * FROM afiliados WHERE NO_EMPLEADO = '$noEmpleado'";
     $resultAfiliados = $conn->query($sqlAfiliados);
 
-    /* Consulta Formulario de Datos de Afiliados */
+    /* Consulta Formulario 6 de Datos de Afiliados */
     if ($resultAfiliados->num_rows > 0) {
         $rowAfiliados = $resultAfiliados->fetch_assoc();
         ?>
@@ -552,7 +554,7 @@
     $sqlEmpleado = "SELECT * FROM datos_del_empleado WHERE NO_EMPLEADO_7 = '$noEmpleado'";
     $resultEmpleado = $conn->query($sqlEmpleado);
 
-    /* Consulta Formulario de Datos del Empleado */
+    /* Consulta Formulario 7 de Datos del Empleado */
     if ($resultEmpleado->num_rows > 0) {
         $rowEmpleado = $resultEmpleado->fetch_assoc();
         ?>
@@ -763,7 +765,7 @@
     $sqlLaborales = "SELECT * FROM dato_laborales_personal_c WHERE NO_EMPLEADO = '$noEmpleado'";
     $resultLaborales = $conn->query($sqlLaborales);
 
-    /* Consulta Formulario de Datos Laborales del Personal Misionado */
+    /* Consulta Formulario 8 de Datos Laborales del Personal Misionado */
     if ($resultLaborales->num_rows > 0) {
         $rowLaborales = $resultLaborales->fetch_assoc();
         ?>
@@ -834,7 +836,7 @@
     $sqlVestimenta = "SELECT * FROM indumentaria WHERE NO_EMPLEADO = '$noEmpleado'";
     $resultVestimenta = $conn->query($sqlVestimenta);
 
-    /* Consulta Formulario de Datos de Vestimenta */
+    /* Consulta Formulario 9 de Datos de Vestimenta */
     if ($resultVestimenta->num_rows > 0) {
         $rowVestimenta = $resultVestimenta->fetch_assoc();
         ?>
@@ -920,7 +922,7 @@
     $sqlComisiones = "SELECT * FROM comisiones WHERE NO_EMPLEADO = '$noEmpleado'";
     $resultComisiones = $conn->query($sqlComisiones);
 
-    /* Consulta Formulario de Datos de Comisiones */
+    /* Consulta Formulario 10 de Datos de Comisiones */
     if ($resultComisiones->num_rows > 0) {
         $rowComisiones = $resultComisiones->fetch_assoc();
         ?>
@@ -971,7 +973,7 @@
     $sqlMovimientosASDC = "SELECT * FROM movimiento_por_cambio_asdc WHERE NO_EMPLEADO = '$noEmpleado'";
     $resultMovimientosASDC = $conn->query($sqlMovimientosASDC);
 
-    /* Consulta Formulario de Datos de Movimientos por Cambio ASDC */
+    /* Consulta Formulario 11 de Datos de Movimientos por Cambio ASDC */
     if ($resultMovimientosASDC->num_rows > 0) {
         $rowMovimientosASDC = $resultMovimientosASDC->fetch_assoc();
         ?>
@@ -1022,7 +1024,7 @@
     $sqlDatosEmpleo = "SELECT * FROM datos_del_empleo WHERE NO_EMPLEADO = '$noEmpleado'";
     $resultDatosEmpleo = $conn->query($sqlDatosEmpleo);
 
-    /* Consulta Formulario de Datos del Empleo */
+    /* Consulta Formulario 12 de Datos del Empleo */
     if ($resultDatosEmpleo->num_rows > 0) {
         $rowDatosEmpleo = $resultDatosEmpleo->fetch_assoc();
         ?>
@@ -1193,7 +1195,7 @@
     $sqlCategorizacion = "SELECT * FROM categorizacion WHERE NO_EMPLEADO = '$noEmpleado'";
     $resultCategorizacion = $conn->query($sqlCategorizacion);
 
-    /* Consulta Formulario de Categorización */
+    /* Consulta Formulario 13 de Categorización */
     if ($resultCategorizacion->num_rows > 0) {
         $rowCategorizacion = $resultCategorizacion->fetch_assoc();
         ?>
@@ -1239,7 +1241,7 @@
     $sqlCursos = "SELECT * FROM cursos_reconocimiento_cuerso WHERE NO_EMPLEADO_14 = '$noEmpleado'";
     $resultCursos = $conn->query($sqlCursos);
 
-    /* Consulta Formulario de Cursos y Reconocimientos de Cursos */
+    /* Consulta Formulario 14 de Cursos y Reconocimientos de Cursos */
     if ($resultCursos->num_rows > 0) {
         $rowCursos = $resultCursos->fetch_assoc();
         ?>
@@ -1315,7 +1317,7 @@
     $sqlIncapacidad = "SELECT * FROM incapacida WHERE NO_EMPLEADO_15 = '$noEmpleado'";
     $resultIncapacidad = $conn->query($sqlIncapacidad);
 
-    /* Consulta Formulario de Incapacidad */
+    /* Consulta Formulario 15 de Incapacidad */
     if ($resultIncapacidad->num_rows > 0) {
         $rowIncapacidad = $resultIncapacidad->fetch_assoc();
         ?>
