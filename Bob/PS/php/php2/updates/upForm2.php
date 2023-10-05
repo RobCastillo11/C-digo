@@ -17,17 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $diccion = $_POST['DICCION'];
     $dialecto = $_POST['DIALECTO'];
     $ldr = $_POST['LDR'];
-    $nde = $_POST['NDE'];
-    $nes = $_POST['NES'];
-    $apea = $_POST['APEA'];
-    $amea = $_POST['AMEA'];
-    $nhs = $_POST['NHS'];
-    $ndh = $_POST['NDH'];
-    $apdh = $_POST['APDH'];
-    $amdh = $_POST['AMDH'];
-    $sexoh = $_POST['SEXOH'];
-    $fnh = $_POST['FNH'];
-    $edadh = $_POST['EDADH'];
+    $nde = isset($_POST['NDE']) ? $_POST['NDE'] : 0;
+    
+    // Inicializar variables para esposas y hijos
+    $esposas = [];
+    $hijos = [];
 
     // Actualizar los datos en la base de datos
     $sqlUpdate = "UPDATE datos_familia SET 
@@ -40,18 +34,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         DICCION = '$diccion',
         DIALECTO = '$dialecto',
         LDR = '$ldr',
-        NDE = '$nde',
-        NES = '$nes',
-        APEA = '$apea',
-        AMEA = '$amea',
-        NHS = '$nhs',
-        NDH = '$ndh',
-        APDH = '$apdh',
-        AMDH = '$amdh',
-        SEXOH = '$sexoh',
-        FNH = '$fnh',
-        EDADH = '$edadh'
-        WHERE NO_EMPLEADO_2 = '$noEmpleado'";
+        NDE = '$nde'";
+    
+    // Actualizar datos de las esposas
+    for ($i = 0; $i < $nde; $i++) {
+        $esposa = $_POST['ESPOSA'][$i];
+        $apeEsposa1 = $_POST['APE_ESPOSA1'][$i];
+        $apeEsposa2 = $_POST['APE_ESPOSA2'][$i];
+        $esposas[] = compact('esposa', 'apeEsposa1', 'apeEsposa2');
+    }
+    
+    // Actualizar datos de los hijos y calcular edades
+    $nhs = isset($_POST['NHS']) ? $_POST['NHS'] : 0;
+    for ($i = 0; $i < $nhs; $i++) {
+        $hijo = $_POST['HIJO'][$i];
+        $apdh1 = $_POST['APDH1'][$i];
+        $apdh2 = $_POST['APDH2'][$i];
+        $sexoH = $_POST['SEXOH'][$i];
+        $fnhH = $_POST['FNH'][$i];
+        
+        // Calcular la edad a partir de la fecha de nacimiento
+        $fechaNacimiento = new DateTime($fnhH);
+        $hoy = new DateTime();
+        $edadHijo = $fechaNacimiento->diff($hoy)->y;
+        
+        $hijos[] = compact('hijo', 'apdh1', 'apdh2', 'sexoH', 'fnhH', 'edadHijo');
+    }
+    
+    // Transformar los arrays de esposas y hijos en cadenas JSON
+    $esposasJSON = json_encode($esposas);
+    $hijosJSON = json_encode($hijos);
+    
+    // Agregar los datos JSON al SQL
+    $sqlUpdate .= ", NES = '$esposasJSON', NDH = '$hijosJSON' WHERE NO_EMPLEADO_2 = '$noEmpleado'";
 
     if ($conn->query($sqlUpdate) === TRUE) {
         // Redirigir de vuelta a modificar.php con el NO_EMPLEADO_2
