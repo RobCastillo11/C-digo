@@ -168,7 +168,7 @@
             <section>
                 <h2>Datos Familiares</h2>
                 <!-- Formulario 2 Datos de Familia -->
-                <form action="" method="POST">
+                <form action="php2/cons.php" method="POST">
                     <!-- Campo de texto para el NO_EMPLEADO_2 -->
                     <label for="noEmpleado2">Número de Empleado:</label>
                     <input type="text" id="noEmpleado2" name="NO_EMPLEADO_2" required readonly value="<?php echo $rowfamilia['NO_EMPLEADO_2']; ?>">
@@ -272,7 +272,15 @@
                     <!-- Campo de texto para EDAD -->
                     <label for="edadh">Edad Hijo:</label>
                     <input type="text" id="edadh" name="EDADH" required readonly value="<?php echo $rowfamilia['EDADH']; ?>">
-                    <br><br><br><br><br>
+                    <br><br>
+                    
+                    <!-- Campo textarea para CONSIDERACIONES -->
+                    <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
+                    <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
+                    <br><br>
+
+                    <!-- Botón de guardar CONSIDERACIONES -->
+                    <input type="submit" name="guardar" value="Guardar Observaciones"><br><br><br>
 
                 </form>
             </section>
@@ -292,7 +300,7 @@
             <section>
                 <h2>Evaluación Anual del Desempeño</h2>
                 <!-- Formulario de Evaluación -->
-                <form action="" method="POST">
+                <form action="php2/cons.php" method="POST">
                     <!-- Campo de texto para el Número de Empleado -->
                     <label for="noEmpleado3">Número de Empleado:</label>
                     <input type="text" id="noEmpleado3" name="NO_EMPLEADO_3" required readonly value="<?php echo $rowEvaluacion['NO_EMPLEADO_3']; ?>">
@@ -321,7 +329,15 @@
                     <!-- Campo de texto para la Calificación Cualidades y Aptitudes Profesionales -->
                     <label for="calificacionCualidades">Calificación Cualidades y Aptitudes Profesionales:</label>
                     <input type="text" id="calificacionCualidades" name="ccap" required readonly value="<?php echo $rowEvaluacion['ccap']; ?>">
-                    <br><br><br><br><br>
+                    <br><br>
+                    
+                    <!-- Campo textarea para CONSIDERACIONES -->
+                    <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
+                    <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
+                    <br><br>
+
+                    <!-- Botón de guardar CONSIDERACIONES -->
+                    <input type="submit" name="guardar" value="Guardar Observaciones"><br><br><br>
                 </form>
             </section>
         <?php
@@ -340,7 +356,7 @@
         <section>
             <h2>Datos de Estudio</h2>
             <!-- Formulario de Datos de Estudio -->
-            <form action="" method="POST">
+            <form action="php2/cons.php" method="POST">
                 <!-- Campo de texto para el Número de Empleado -->
                 <label for="noEmpleado">Número de Empleado:</label>
                 <input type="text" id="noEmpleado" name="NO_EMPLEADO" required readonly value="<?php echo $rowEstudio['NO_EMPLEADO']; ?>">
@@ -435,6 +451,14 @@
                 <label for="cursoPeritoCalif">Curso Perito Calif:</label>
                 <input type="text" id="cursoPeritoCalif" name="CURSO_PERITO_CALIF" required readonly value="<?php echo $rowEstudio['CURSO_PERITO_CALIF']; ?>">
                 <br><br>
+
+                <!-- Campo textarea para CONSIDERACIONES -->
+                <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
+                <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
+                <br><br>
+
+                <!-- Botón de guardar CONSIDERACIONES -->
+                <input type="submit" name="guardar" value="Guardar Observaciones"><br><br><br>
             </form>
         </section>
         <?php
@@ -453,7 +477,7 @@
         <section>
             <h2>Datos Militares</h2>
             <!-- Formulario de Datos Militares -->
-            <form action="" method="POST">
+            <form action="php2/cons.php" method="POST">
                 <!-- Campo de texto para el Número de Empleado -->
                 <label for="noEmpleado">Número de Empleado:</label>
                 <input type="text" id="noEmpleado" name="NO_EMPLEADO" required readonly value="<?php echo $rowMilitares['NO_EMPLEADO']; ?>">
@@ -487,7 +511,15 @@
                 <!-- Campo de texto para Motivo Baja -->
                 <label for="motivoBaja">Motivo Baja:</label>
                 <input type="text" id="motivoBaja" name="MB" required readonly value="<?php echo $rowMilitares['MB']; ?>">
-                <br><br><br><br><br>
+                <br><br>
+                
+                <!-- Campo textarea para CONSIDERACIONES -->
+                <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
+                <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
+                <br><br>
+
+                <!-- Botón de guardar CONSIDERACIONES -->
+                <input type="submit" name="guardar" value="Guardar Observaciones"><br><br><br>
             </form>
         </section>
         <?php
@@ -506,7 +538,7 @@
         <section>
             <h2>Datos de Afiliados</h2>
             <!-- Formulario de Datos de Afiliados -->
-            <form action="" method="POST">
+            <form action="php2/cons.php" method="POST">
                 <!-- Campo de texto para el Número de Empleado -->
                 <label for="noEmpleado">Número de Empleado:</label>
                 <input type="text" id="noEmpleado" name="NO_EMPLEADO" required readonly value="<?php echo $rowAfiliados['NO_EMPLEADO']; ?>">
@@ -531,6 +563,14 @@
                 <label for="seguroMayor">Personal que le Corresponde Seguro Mayor:</label>
                 <input type="text" id="seguroMayor" name="PQL" required readonly value="<?php echo $rowAfiliados['PQL']; ?>">
                 <br><br>
+
+                <!-- Campo textarea para CONSIDERACIONES -->
+                <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
+                <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
+                <br><br>
+
+                <!-- Botón de guardar CONSIDERACIONES -->
+                <input type="submit" name="guardar" value="Guardar Observaciones"><br><br><br>
             </form>
         </section>
         <?php
@@ -549,7 +589,7 @@
         <section>
             <h2>Datos del Empleado</h2>
             <!-- Formulario de Datos del Empleado -->
-            <form action="" method="POST">
+            <form action="php2/cons.php" method="POST">
                 <!-- Campo de texto para el Número de Empleado -->
                 <label for="noEmpleado">Número de Empleado:</label>
                 <input type="text" id="noEmpleado" name="NO_EMPLEADO_7" required readonly value="<?php echo $rowEmpleado['NO_EMPLEADO_7']; ?>">
@@ -738,7 +778,15 @@
                 <!-- Campo de texto para Número de Cuenta Banco -->
                 <label for="cuentaBanco">No. Cuenta Banco:</label>
                 <input type="text" id="cuentaBanco" name="NO_CUENTA_BANCO" required readonly value="<?php echo $rowEmpleado['NO_CUENTA_BANCO']; ?>">
-                <br><br><br><br><br>
+                <br><br>
+                
+                <!-- Campo textarea para CONSIDERACIONES -->
+                <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
+                <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
+                <br><br>
+
+                <!-- Botón de guardar CONSIDERACIONES -->
+                <input type="submit" name="guardar" value="Guardar Observaciones"><br><br><br>
 
             </form>
         </section>
@@ -758,7 +806,7 @@
         <section>
             <h2>Datos Laborales del Personal Misionado</h2>
             <!-- Formulario de Datos Laborales del Personal Misionado -->
-            <form action="" method="POST">
+            <form action="php2/cons.php" method="POST">
                 <!-- Campo de texto para el Número de Empleado -->
                 <label for="noEmpleado">Número de Empleado:</label>
                 <input type="text" id="noEmpleado" name="NO_EMPLEADO" required readonly value="<?php echo $rowLaborales['NO_EMPLEADO']; ?>">
@@ -807,7 +855,15 @@
                 <!-- Campo de texto para Clave de Área -->
                 <label for="claveArea">Clave de Área:</label>
                 <input type="text" id="claveArea" name="CVE_AREA" required readonly value="<?php echo $rowLaborales['CVE_AREA']; ?>">
-                <br><br><br><br><br>
+                <br><br>
+                
+                <!-- Campo textarea para CONSIDERACIONES -->
+                <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
+                <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
+                <br><br>
+
+                <!-- Botón de guardar CONSIDERACIONES -->
+                <input type="submit" name="guardar" value="Guardar Observaciones"><br><br><br>
             </form>
         </section>
         <?php
@@ -826,7 +882,7 @@
         <section>
             <h2>Datos de Vestimenta</h2>
             <!-- Formulario de Datos de Vestimenta -->
-            <form action="" method="POST">
+            <form action="php2/cons.php" method="POST">
                 <!-- Campo de texto para el Número de Empleado -->
                 <label for="noEmpleado">Número de Empleado:</label>
                 <input type="text" id="noEmpleado" name="NO_EMPLEADO" required readonly value="<?php echo $rowVestimenta['NO_EMPLEADO']; ?>">
@@ -890,7 +946,15 @@
                 <!-- Campo de texto para Bata -->
                 <label for="bata">Bata:</label>
                 <input type="text" id="bata" name="BATA" required readonly value="<?php echo $rowVestimenta['BATA']; ?>">
-                <br><br><br><br><br>
+                <br><br>
+                
+                <!-- Campo textarea para CONSIDERACIONES -->
+                <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
+                <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
+                <br><br>
+
+                <!-- Botón de guardar CONSIDERACIONES -->
+                <input type="submit" name="guardar" value="Guardar Observaciones"><br><br><br>
             </form>
         </section>
         <?php
@@ -909,7 +973,7 @@
         <section>
             <h2>Datos de Comisiones</h2>
             <!-- Formulario de Datos de Comisiones -->
-            <form action="" method="POST">
+            <form action="php2/cons.php" method="POST">
                 <!-- Campo de texto para el Número de Empleado -->
                 <label for="noEmpleado">Número de Empleado:</label>
                 <input type="text" id="noEmpleado" name="NO_EMPLEADO" required readonly value="<?php echo $rowComisiones['NO_EMPLEADO']; ?>">
@@ -938,7 +1002,15 @@
                 <!-- Campo de texto para Oficina de Comisión -->
                 <label for="oficinaComision">Oficina de Comisión:</label>
                 <input type="text" id="oficinaComision" name="OF_COMISION" required readonly value="<?php echo $rowComisiones['OF_COMISION']; ?>">
-                <br><br><br><br><br>
+                <br><br>
+                
+                <!-- Campo textarea para CONSIDERACIONES -->
+                <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
+                <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
+                <br><br>
+
+                <!-- Botón de guardar CONSIDERACIONES -->
+                <input type="submit" name="guardar" value="Guardar Observaciones"><br><br><br>
             </form>
         </section>
         <?php
@@ -957,7 +1029,7 @@
         <section>
             <h2>Datos de Movimientos por Cambio ASDC</h2>
             <!-- Formulario de Datos de Movimientos por Cambio ASDC -->
-            <form action="" method="POST">
+            <form action="php2/cons.php" method="POST">
                 <!-- Campo de texto para el Número de Empleado -->
                 <label for="noEmpleado">Número de Empleado:</label>
                 <input type="text" id="noEmpleado" name="NO_EMPLEADO" required readonly value="<?php echo $rowMovimientosASDC['NO_EMPLEADO']; ?>">
@@ -986,7 +1058,15 @@
                 <!-- Campo de texto para Acuerdo SSP -->
                 <label for="acuerdoSSP">Acuerdo SSP:</label>
                 <input type="text" id="acuerdoSSP" name="ASS" required readonly value="<?php echo $rowMovimientosASDC['ASS']; ?>">
-                <br><br><br><br><br>
+                <br><br>
+                
+                <!-- Campo textarea para CONSIDERACIONES -->
+                <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
+                <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
+                <br><br>
+
+                <!-- Botón de guardar CONSIDERACIONES -->
+                <input type="submit" name="guardar" value="Guardar Observaciones"><br><br><br>
             </form>
         </section>
         <?php
@@ -1005,7 +1085,7 @@
         <section>
             <h2>Datos del Empleo</h2>
             <!-- Formulario de Datos del Empleo -->
-            <form action="" method="POST">
+            <form action="php2/cons.php" method="POST">
                 <!-- Campo de texto para el Número de Empleado -->
                 <label for="noEmpleado">Número de Empleado:</label>
                 <input type="text" id="noEmpleado" name="NO_EMPLEADO" required readonly value="<?php echo $rowDatosEmpleo['NO_EMPLEADO']; ?>">
@@ -1154,7 +1234,15 @@
                 <!-- Campo de texto para FECHA DE EMISION -->
                 <label for="fechaEmision">FECHA DE EMISION:</label>
                 <input type="text" id="fechaEmision" name="FDE" required readonly value="<?php echo $rowDatosEmpleo['FDE']; ?>">
-                <br><br><br><br><br>
+                <br><br>
+                
+                <!-- Campo textarea para CONSIDERACIONES -->
+                <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
+                <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
+                <br><br>
+
+                <!-- Botón de guardar CONSIDERACIONES -->
+                <input type="submit" name="guardar" value="Guardar Observaciones"><br><br><br>
             </form>
         </section>
         <?php
@@ -1173,7 +1261,7 @@
         <section>
             <h2>Categorización</h2>
             <!-- Formulario de Categorización -->
-            <form action="" method="POST">
+            <form action="php2/cons.php" method="POST">
                 <!-- Campo de texto para el Número de Empleado -->
                 <label for="noEmpleado">Número de Empleado:</label>
                 <input type="text" id="noEmpleado" name="NO_EMPLEADO" required readonly value="<?php echo $rowCategorizacion['NO_EMPLEADO']; ?>">
@@ -1197,7 +1285,15 @@
                 <!-- Campo de texto para DESCRIPCIÓN DEL ESTATUS -->
                 <label for="descripcionEstatus">DESCRIPCIÓN DEL ESTATUS:</label>
                 <input type="text" id="descripcionEstatus" name="DESCRIPCION_ESTATUS" required readonly value="<?php echo $rowCategorizacion['DESCRIPCION_ESTATUS']; ?>">
-                <br><br><br><br><br>
+                <br><br>
+                
+                <!-- Campo textarea para CONSIDERACIONES -->
+                <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
+                <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
+                <br><br>
+
+                <!-- Botón de guardar CONSIDERACIONES -->
+                <input type="submit" name="guardar" value="Guardar Observaciones"><br><br><br>
             </form>
         </section>
         <?php
@@ -1216,7 +1312,7 @@
         <section>
             <h2>Cursos y Reconocimientos de Cursos</h2>
             <!-- Formulario de Cursos y Reconocimientos de Cursos -->
-            <form action="" method="POST">
+            <form action="php2/cons.php" method="POST">
                 <!-- Campo de texto para el Número de Empleado -->
                 <label for="noEmpleado">Número de Empleado:</label>
                 <input type="text" id="noEmpleado" name="NO_EMPLEADO_14" required readonly value="<?php echo $rowCursos['NO_EMPLEADO_14']; ?>">
@@ -1270,7 +1366,15 @@
                 <!-- Campo de texto para ¿QUIEN EXPIDE? -->
                 <label for="quienExpide">¿QUIEN EXPIDE?:</label>
                 <input type="text" id="quienExpide" name="QE" required readonly value="<?php echo $rowCursos['QE']; ?>">
-                <br><br><br><br><br>
+                <br><br>
+                
+                <!-- Campo textarea para CONSIDERACIONES -->
+                <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
+                <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
+                <br><br>
+
+                <!-- Botón de guardar CONSIDERACIONES -->
+                <input type="submit" name="guardar" value="Guardar Observaciones"><br><br><br>
             </form>
         </section>
         <?php
@@ -1289,7 +1393,7 @@
         <section>
             <h2>Incapacidad</h2>
             <!-- Formulario de Incapacidad -->
-            <form action="" method="POST">
+            <form action="php2/cons.php" method="POST">
                 <!-- Campo de texto para el Número de Empleado -->
                 <label for="noEmpleado">Número de Empleado:</label>
                 <input type="text" id="noEmpleado" name="NO_EMPLEADO_15" required readonly value="<?php echo $rowIncapacidad['NO_EMPLEADO_15']; ?>">
@@ -1313,7 +1417,15 @@
                 <!-- Campo de texto para INCAPACIDAD PENDIENTE GUARDIA GENERAL -->
                 <label for="incapacidadPendiente">INCAPACIDAD PENDIENTE GUARDIA GENERAL:</label>
                 <input type="text" id="incapacidadPendiente" name="INCAPACIDAD_PENDIENTE_GUARDIA_GENERAL" required readonly value="<?php echo $rowIncapacidad['INCAPACIDAD_PENDIENTE_GUARDIA_GENERAL']; ?>">
-                <br><br><br><br><br>
+                <br><br>
+                
+                <!-- Campo textarea para CONSIDERACIONES -->
+                <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
+                <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
+                <br><br>
+
+                <!-- Botón de guardar CONSIDERACIONES -->
+                <input type="submit" name="guardar" value="Guardar Observaciones"><br><br><br>
             </form>
         </section>
         <?php
