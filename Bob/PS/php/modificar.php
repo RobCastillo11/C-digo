@@ -158,128 +158,295 @@
     $sqlfamilia = "SELECT * FROM datos_familia WHERE NO_EMPLEADO_2 = '$noEmpleado'";
     $resultfamilia = $conn->query($sqlfamilia);
 
-    /*Consulta Formulario 2 Datos de Familia*/
+    /* Consulta Formulario 2 Datos de Familia */
     if ($resultfamilia->num_rows > 0) {
         $rowfamilia = $resultfamilia->fetch_assoc();
         ?>
-            <section>
-                <h2>Datos Familiares</h2>
-                <!-- Formulario 2 Datos de Familia -->
-                <form action="php2/updates/upForm2.php" method="POST">
-                    <!-- Campo de texto para el NO_EMPLEADO_2 -->
-                    <label for="noEmpleado2">Número de Empleado:</label>
-                    <input type="text" id="noEmpleado2" name="NO_EMPLEADO_2" required readonly value="<?php echo $rowfamilia['NO_EMPLEADO_2']; ?>">
-                    <br><br>
+        <section>
+            <h2>Datos Familiares</h2>
+            <!-- Formulario 2 Datos de Familia -->
+            <form action="php2/updates/upForm2.php" method="POST">
+                <!-- Campo de texto para el NO_EMPLEADO_2 -->
+                <label for="noEmpleado2">Número de Empleado:</label>
+                <input type="text" id="noEmpleado2" name="NO_EMPLEADO_2" required readonly
+                    value="<?php echo $rowfamilia['NO_EMPLEADO_2']; ?>">
+                <br><br>
 
-                    <!-- Campo de texto para el TEL_CAS -->
-                    <label for="telCas">Teléfono Casa:</label>
-                    <input type="text" id="telCas" name="TEL_CAS" value="<?php echo $rowfamilia['TEL_CAS']; ?>">
-                    <br><br>
+                <!-- Campo de texto para el TEL_CAS -->
+                <label for="telCas">Teléfono Casa:</label>
+                <input type="text" id="telCas" name="TEL_CAS" value="<?php echo $rowfamilia['TEL_CAS']; ?>">
+                <br><br>
 
-                    <!-- Campo de texto para el TEL_CEL -->
-                    <label for="telCel">Teléfono Celular:</label>
-                    <input type="text" id="telCel" name="TEL_CEL" value="<?php echo $rowfamilia['TEL_CEL']; ?>">
-                    <br><br>
+                <!-- Campo de texto para el TEL_CEL -->
+                <label for="telCel">Teléfono Celular:</label>
+                <input type="text" id="telCel" name="TEL_CEL" value="<?php echo $rowfamilia['TEL_CEL']; ?>">
+                <br><br>
 
-                    <!-- Campo de texto para el TS -->
-                    <label for="ts">TS:</label>
-                    <input type="text" id="ts" name="TS" value="<?php echo $rowfamilia['TS']; ?>">
-                    <br><br>
+                <!-- Campo de texto para el TS -->
+                <label for="ts">Tipo de Sangre:</label>
+                <input type="text" id="ts" name="TS" value="<?php echo $rowfamilia['TS']; ?>">
+                <br><br>
 
-                    <!-- Campo de texto para el IDIOMA -->
-                    <label for="idioma">Idioma:</label>
-                    <input type="text" id="idioma" name="IDIOMA" value="<?php echo $rowfamilia['IDIOMA']; ?>">
-                    <br><br>
+                <!-- Campo de texto para el IDIOMA -->
+                <label for="idioma">Idioma:</label>
+                <input type="text" id="idioma" name="IDIOMA" value="<?php echo $rowfamilia['IDIOMA']; ?>">
+                <br><br>
 
-                    <!-- Campo de texto para ESCRITURA -->
-                    <label for="escritura">Escritura:</label>
-                    <input type="text" id="escritura" name="ESCRITURA" value="<?php echo $rowfamilia['ESCRITURA']; ?>">
-                    <br><br>
+                <!-- Campo de texto para ESCRITURA -->
+                <label for="escritura">Escritura:</label>
+                <input type="text" id="escritura" name="ESCRITURA"
+                    value="<?php echo $rowfamilia['ESCRITURA']; ?>">
+                <br><br>
 
-                    <!-- Campo de texto para LECTURA -->
-                    <label for="lectura">Lectura:</label>
-                    <input type="text" id="lectura" name="LECTURA" value="<?php echo $rowfamilia['LECTURA']; ?>">
-                    <br><br>
+                <!-- Campo de texto para LECTURA -->
+                <label for="lectura">Lectura:</label>
+                <input type="text" id="lectura" name="LECTURA" value="<?php echo $rowfamilia['LECTURA']; ?>">
+                <br><br>
 
-                    <!-- Campo de texto para DICCION -->
-                    <label for="diccion">Diccion:</label>
-                    <input type="text" id="diccion" name="DICCION" value="<?php echo $rowfamilia['DICCION']; ?>">
-                    <br><br>
+                <!-- Campo de texto para DICCION -->
+                <label for="diccion">Dicción:</label>
+                <input type="text" id="diccion" name="DICCION" value="<?php echo $rowfamilia['DICCION']; ?>">
+                <br><br>
 
-                    <!-- Campo de texto para DIALECTO -->
-                    <label for="dialecto">Dialecto:</label>
-                    <input type="text" id="dialecto" name="DIALECTO" value="<?php echo $rowfamilia['DIALECTO']; ?>">
-                    <br><br>
+                <!-- Campo de texto para DIALECTO -->
+                <label for="dialecto">Dialecto:</label>
+                <input type="text" id="dialecto" name="DIALECTO"
+                    value="<?php echo $rowfamilia['DIALECTO']; ?>">
+                <br><br>
 
-                    <!-- Campo de texto para LUGAR DE RESIDENCIA -->
-                    <label for="ldr">Lugar de Residencia:</label>
-                    <input type="text" id="ldr" name="LDR" value="<?php echo $rowfamilia['LDR']; ?>">
-                    <br><br>
+                <!-- Campo de texto para LUGAR DE RESIDENCIA -->
+                <label for="ldr">Lugar de Residencia:</label>
+                <input type="text" id="ldr" name="LDR" value="<?php echo $rowfamilia['LDR']; ?>">
+                <br><br>
 
-                    <!-- Campo de texto para ¿CUANTAS ESPOSAS TIENE?: -->
-                    <label for="nde">Número de Esposas:</label>
-                    <input type="text" id="nde" name="NDP" value="<?php echo $rowfamilia['NDE']; ?>">
-                    <br><br>
+                <!-- Campo de texto para ¿CUANTAS ESPOSAS TIENE?: -->
+                <label for="nde">Número de Esposas:</label>
+                <select id="nde" name="NDE">
+                    <option value="0" <?php if ($rowfamilia['NDE'] == 0) echo 'selected'; ?>>0</option>
+                    <option value="1" <?php if ($rowfamilia['NDE'] == 1) echo 'selected'; ?>>1</option>
+                    <option value="2" <?php if ($rowfamilia['NDE'] == 2) echo 'selected'; ?>>2</option>
+                    <option value="3" <?php if ($rowfamilia['NDE'] == 3) echo 'selected'; ?>>3</option>
+                    <option value="4" <?php if ($rowfamilia['NDE'] == 4) echo 'selected'; ?>>4</option>
+                    <option value="5" <?php if ($rowfamilia['NDE'] == 5) echo 'selected'; ?>>5</option>
+                </select>
+                <br><br>
 
-                    <!-- Campo de texto para NOMBRE (S) DE ESPOSA: -->
-                    <label for="nes">Nombre de Esposas:</label>
-                    <input type="text" id="nes" name="NES" value="<?php echo $rowfamilia['NES']; ?>">
-                    <br><br>
+                <!-- Campo de texto para NOMBRE (S) DE ESPOSA: -->
+                <label for="nes">Nombre de Esposas:</label>
+                <div id="nombreEsposas">
+                    <?php
+                    $numEsposas = $rowfamilia['NDE'];
+                    for ($i = 0; $i < $numEsposas; $i++) {
+                        echo '<input type="text" name="ESPOSA[' . $i . ']" placeholder="Nombre de esposa ' . ($i + 1) . '"><br>';
+                        echo '<input type="text" name="APE_ESPOSA1[' . $i . ']" placeholder="Apellido 1 de esposa ' . ($i + 1) . '"><br>';
+                        echo '<input type="text" name="APE_ESPOSA2[' . $i . ']" placeholder="Apellido 2 de esposa ' . ($i + 1) . '"><br>';
+                        echo '<br>';
+                    }
+                    ?>
+                </div>
+                <br><br>
 
-                    <!-- Campo de texto para APELLIDO PATERNO : -->
-                    <label for="apea">Apellido 1 Esposa:</label>
-                    <input type="text" id="apea" name="APEA" value="<?php echo $rowfamilia['APEA']; ?>">
-                    <br><br>
+                <script>
+                    document.getElementById('nde').addEventListener('change', function () {
+                        var numEsposas = parseInt(this.value);
+                        var nombreEsposasDiv = document.getElementById('nombreEsposas');
 
-                    <!-- Campo de texto para APELLIDO MATERNO: -->
-                    <label for="dialecto">Apellido 2 Esposa:</label>
-                    <input type="text" id="dialecto" name="DIALECTO" value="<?php echo $rowfamilia['AMEA']; ?>">
-                    <br><br>
+                        nombreEsposasDiv.innerHTML = '';
 
-                    <!-- Campo de texto para ¿CUANTOS HIJOS TIENE?: -->
-                    <label for="nhs">Número de hijos:</label>
-                    <input type="text" id="nhs" name="NHS" value="<?php echo $rowfamilia['NHS']; ?>">
-                    <br><br>
+                        for (var i = 0; i < numEsposas; i++) {
+                            var nombreInput = document.createElement('input');
+                            nombreInput.type = 'text';
+                            nombreInput.name = 'ESPOSA[' + i + ']';
+                            nombreInput.placeholder = 'Nombre de esposa ' + (i + 1);
+                            nombreEsposasDiv.appendChild(nombreInput);
+                            nombreEsposasDiv.appendChild(document.createElement('br'));
 
-                    <!-- Campo de texto para NOMBRE (S) DE HIJO (S): -->
-                    <label for="ndh">Nombre de hijos:</label>
-                    <input type="text" id="ndh" name="NDH" value="<?php echo $rowfamilia['NDH']; ?>">
-                    <br><br>
+                            var apellido1Input = document.createElement('input');
+                            apellido1Input.type = 'text';
+                            apellido1Input.name = 'APE_ESPOSA1[' + i + ']';
+                            apellido1Input.placeholder = 'Apellido 1 de esposa ' + (i + 1);
+                            nombreEsposasDiv.appendChild(apellido1Input);
+                            nombreEsposasDiv.appendChild(document.createElement('br'));
 
-                    <!-- Campo de texto para APELLIDO PATERNO: -->
-                    <label for="apdh">Apellido 1 Hijo:</label>
-                    <input type="text" id="apdh" name="APDH" value="<?php echo $rowfamilia['APDH']; ?>">
-                    <br><br>
+                            var apellido2Input = document.createElement('input');
+                            apellido2Input.type = 'text';
+                            apellido2Input.name = 'APE_ESPOSA2[' + i + ']';
+                            apellido2Input.placeholder = 'Apellido 2 de esposa ' + (i + 1);
+                            nombreEsposasDiv.appendChild(apellido2Input);
+                            nombreEsposasDiv.appendChild(document.createElement('br'));
+                        }
+                    });
+                </script>
 
-                    <!-- Campo de texto para APELLIDO MATERNO: -->
-                    <label for="amdh">Apellido 2 Hijo:</label>
-                    <input type="text" id="amdh" name="AMDH" value="<?php echo $rowfamilia['AMDH']; ?>">
-                    <br><br>
+                <!-- Campo de texto para ¿CUANTOS HIJOS TIENE?: -->
+                <label for="nhs">Número de hijos:</label>
+                <select id="nhs" name="NHS">
+                    <option value="0" <?php if ($rowfamilia['NHS'] == 0) echo 'selected'; ?>>0</option>
+                    <option value="1" <?php if ($rowfamilia['NHS'] == 1) echo 'selected'; ?>>1</option>
+                    <option value="2" <?php if ($rowfamilia['NHS'] == 2) echo 'selected'; ?>>2</option>
+                    <option value="3" <?php if ($rowfamilia['NHS'] == 3) echo 'selected'; ?>>3</option>
+                    <option value="4" <?php if ($rowfamilia['NHS'] == 4) echo 'selected'; ?>>4</option>
+                    <option value="5" <?php if ($rowfamilia['NHS'] == 5) echo 'selected'; ?>>5</option>
+                    <option value="6" <?php if ($rowfamilia['NHS'] == 6) echo 'selected'; ?>>6</option>
+                    <option value="7" <?php if ($rowfamilia['NHS'] == 7) echo 'selected'; ?>>7</option>
+                    <option value="8" <?php if ($rowfamilia['NHS'] == 8) echo 'selected'; ?>>8</option>
+                    <option value="9" <?php if ($rowfamilia['NHS'] == 9) echo 'selected'; ?>>9</option>
+                    <option value="10" <?php if ($rowfamilia['NHS'] == 10) echo 'selected'; ?>>10</option>
+                </select>
+                <br><br>
 
-                    <!-- Campo de texto para SEXO -->
-                    <label for="sexoh">Sexo Hijo:</label>
-                    <input type="text" id="sexoh" name="SEXOH" value="<?php echo $rowfamilia['SEXOH']; ?>">
-                    <br><br>
+                <!-- Campo de texto para NOMBRE (S) DE HIJO (S): -->
+                <label for="ndh">Nombre de hijos:</label>
+                <div id="nombreHijos">
+                    <?php
+                    $numHijos = $rowfamilia['NHS'];
+                    for ($i = 0; $i < $numHijos; $i++) {
+                        $nombreHijo = isset($rowfamilia['HIJO'][$i]) ? $rowfamilia['HIJO'][$i] : '';
+                        echo '<input type="text" name="HIJO[' . $i . ']" value="' . $nombreHijo . '" placeholder="Nombre de hijo ' . ($i + 1) . '"><br>';
+                    }
+                    ?>
+                </div>
+                <br><br>
 
-                    <!-- Campo de texto para FECHA DE NACIMIENTO: -->
-                    <label for="fnh">Fecha de Nacimiento Hijo:</label>
-                    <input type="text" id="fnh" name="FNH" value="<?php echo $rowfamilia['FNH']; ?>">
-                    <br><br>
+                <!-- Campo de texto para APELLIDO PATERNO: -->
+                <label for="apdh">Apellido 1 Hijo:</label>
+                <div id="apellidoHijos1">
+                    <?php
+                    for ($i = 0; $i < $numHijos; $i++) {
+                        $apellido1Hijo = isset($rowfamilia['APDH1'][$i]) ? $rowfamilia['APDH1'][$i] : '';
+                        echo '<input type="text" name="APDH1[' . $i . ']" value="' . $apellido1Hijo . '" placeholder="Apellido 1 de hijo ' . ($i + 1) . '"><br>';
+                    }
+                    ?>
+                </div>
+                <br><br>
 
-                    <!-- Campo de texto para EDAD -->
-                    <label for="edadh">Edad Hijo:</label>
-                    <input type="text" id="edadh" name="EDADH" value="<?php echo $rowfamilia['EDADH']; ?>">
-                    <br><br>
+                <!-- Campo de texto para APELLIDO MATERNO: -->
+                <label for="amdh">Apellido 2 Hijo:</label>
+                <div id="apellidoHijos2">
+                    <?php
+                    for ($i = 0; $i < $numHijos; $i++) {
+                        $apellido2Hijo = isset($rowfamilia['APDH2'][$i]) ? $rowfamilia['APDH2'][$i] : '';
+                        echo '<input type="text" name="APDH2[' . $i . ']" value="' . $apellido2Hijo . '" placeholder="Apellido 2 de hijo ' . ($i + 1) . '"><br>';
+                    }
+                    ?>
+                </div>
+                <br><br>
 
-                    <!-- Botón de guardar CAMBIOS -->
-                    <input type="submit" name="guardar" value="Guardar Cambios"><br><br><br><br><br>
+                <!-- Campo de texto para SEXO -->
+                <label for="sexoh">Sexo Hijo:</label>
+                <div id="sexoHijos">
+                    <?php
+                    for ($i = 0; $i < $numHijos; $i++) {
+                        $sexoHijo = isset($rowfamilia['SEXOH'][$i]) ? $rowfamilia['SEXOH'][$i] : 'M';
+                        echo '<select name="SEXOH[' . $i . ']">';
+                        echo '<option value="M" ' . ($sexoHijo == 'M' ? 'selected' : '') . '>M</option>';
+                        echo '<option value="F" ' . ($sexoHijo == 'F' ? 'selected' : '') . '>F</option>';
+                        echo '</select><br>';
+                    }
+                    ?>
+                </div>
+                <br><br>
 
-                </form>
-            </section>
+                <!-- Campo de texto para FECHA DE NACIMIENTO: -->
+                <label for="fnh">Fecha de Nacimiento Hijo:</label>
+                <div id="fechaNacimientoHijos">
+                    <?php
+                    for ($i = 0; $i < $numHijos; $i++) {
+                        $fechaNacimientoHijo = isset($rowfamilia['FNH'][$i]) ? $rowfamilia['FNH'][$i] : '';
+                        echo '<input type="date" name="FNH[' . $i . ']" value="' . $fechaNacimientoHijo . '"><br>';
+                    }
+                    ?>
+                </div>
+                <br><br>
+
+                <!-- Campo de texto para EDAD -->
+                <label for="edadh">Edad Hijo:</label>
+                <div id="edadHijos">
+                    <?php
+                    for ($i = 0; $i < $numHijos; $i++) {
+                        $edadHijo = isset($rowfamilia['EDADH'][$i]) ? $rowfamilia['EDADH'][$i] : '';
+                        echo '<input type="text" name="EDADH[' . $i . ']" value="' . $edadHijo . '"><br>';
+                    }
+                    ?>
+                </div>
+                <br><br>
+
+                <script>
+                    document.getElementById('nhs').addEventListener('change', function () {
+                        var numHijos = parseInt(this.value);
+                        var nombreHijosDiv = document.getElementById('nombreHijos');
+                        var apellidoHijos1Div = document.getElementById('apellidoHijos1');
+                        var apellidoHijos2Div = document.getElementById('apellidoHijos2');
+                        var sexoHijosDiv = document.getElementById('sexoHijos');
+                        var fechaNacimientoHijosDiv = document.getElementById('fechaNacimientoHijos');
+                        var edadHijosDiv = document.getElementById('edadHijos');
+
+                        nombreHijosDiv.innerHTML = '';
+                        apellidoHijos1Div.innerHTML = '';
+                        apellidoHijos2Div.innerHTML = '';
+                        sexoHijosDiv.innerHTML = '';
+                        fechaNacimientoHijosDiv.innerHTML = '';
+                        edadHijosDiv.innerHTML = '';
+
+                        for (var i = 0; i < numHijos; i++) {
+                            var nombreInput = document.createElement('input');
+                            nombreInput.type = 'text';
+                            nombreInput.name = 'HIJO[' + i + ']';
+                            nombreInput.placeholder = 'Nombre de hijo ' + (i + 1);
+                            nombreHijosDiv.appendChild(nombreInput);
+                            nombreHijosDiv.appendChild(document.createElement('br'));
+
+                            var apellido1Input = document.createElement('input');
+                            apellido1Input.type = 'text';
+                            apellido1Input.name = 'APDH1[' + i + ']';
+                            apellido1Input.placeholder = 'Apellido 1 de hijo ' + (i + 1);
+                            apellidoHijos1Div.appendChild(apellido1Input);
+                            apellidoHijos1Div.appendChild(document.createElement('br'));
+
+                            var apellido2Input = document.createElement('input');
+                            apellido2Input.type = 'text';
+                            apellido2Input.name = 'APDH2[' + i + ']';
+                            apellido2Input.placeholder = 'Apellido 2 de hijo ' + (i + 1);
+                            apellidoHijos2Div.appendChild(apellido2Input);
+                            apellidoHijos2Div.appendChild(document.createElement('br'));
+
+                            var sexoSelect = document.createElement('select');
+                            sexoSelect.name = 'SEXOH[' + i + ']';
+                            var optionM = document.createElement('option');
+                            optionM.value = 'M';
+                            optionM.text = 'M';
+                            var optionF = document.createElement('option');
+                            optionF.value = 'F';
+                            optionF.text = 'F';
+                            sexoSelect.appendChild(optionM);
+                            sexoSelect.appendChild(optionF);
+                            sexoHijosDiv.appendChild(sexoSelect);
+                            sexoHijosDiv.appendChild(document.createElement('br'));
+
+                            var fechaInput = document.createElement('input');
+                            fechaInput.type = 'date';
+                            fechaInput.name = 'FNH[' + i + ']';
+                            fechaNacimientoHijosDiv.appendChild(fechaInput);
+                            fechaNacimientoHijosDiv.appendChild(document.createElement('br'));
+
+                            var edadInput = document.createElement('input');
+                            edadInput.type = 'text';
+                            edadInput.name = 'EDADH[' + i + ']';
+                            edadHijosDiv.appendChild(edadInput);
+                            edadHijosDiv.appendChild(document.createElement('br'));
+                        }
+                    });
+                </script>
+                
+                <!-- Botón de guardar CAMBIOS -->
+                <input type="submit" name="guardar" value="Guardar Cambios"><br><br><br><br><br>
+            </form>
+        </section>
         <?php
-    }else {
+    } else {
         echo "<p>Empleado no encontrado.</p>";
     }
+
 
     // Consulta los datos de evaluación anual del desempeño
     $sqlEvaluacion = "SELECT * FROM valucion_anual_desempeño WHERE NO_EMPLEADO_3 = '$noEmpleado'";
