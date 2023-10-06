@@ -503,6 +503,13 @@
                     <label for="documento">Documento:</label>
                     <input type="text" id="documento" name="DOCUMENTO" required readonly value="<?php echo $rowEstudio['DOCUMENTO']; ?>">
                 </div>
+
+                <!-- Campo de texto para el INSTITUTO -->
+                <div class="form-group">
+                    <label for="instituto">Documento:</label>
+                    <input type="text" id="instituto" name="INSTITUTO" required readonly value="<?php echo $rowEstudio['INSTITUTO']; ?>">
+                </div>
+
                 <!-- Campo de texto para el Curso Fuerza Metropolitana Estatal -->
                 <div class="form-group">
                     <label for="cfme">Curso Fuerza Metropolitana Estatal:</label>
@@ -517,10 +524,17 @@
                     <label for="grupo">Grupo:</label>
                     <input type="text" id="grupo" name="GRUPO" required readonly value="<?php echo $rowEstudio['GRUPO']; ?>">
                 </div>
+                    
+                <!-- Campo de texto para el Grupo -->
+                <div class="form-group">
+                    <label for="grupo">Grupo:</label>
+                    <input type="text" id="grupo" name="GRUPO" required readonly value="<?php echo $rowEstudio['GRUPO']; ?>">
+                </div>
+
                 <!-- Campo de texto para la Generación -->
                 <div class="form-group">
-                    <label for="generacion">Generación:</label>
-                    <input type="text" id="generacion" name="GENERACION" required readonly value="<?php echo $rowEstudio['GENERACION']; ?>">
+                    <label for="ccac">Cuenta con academia:</label>
+                    <input type="text" id="ccac" name="CCAC" required readonly value="<?php echo $rowEstudio['CCAC']; ?>">
                 </div>
             </div>
         </div>
@@ -1596,17 +1610,21 @@
         $conn->close();
         ?>
 
-           <!-- Campo textarea para CONSIDERACIONES -->
-                <div class="form-group">
-            <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
-            <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
-        </div>
+        <form action="php2/cons.php" method="POST">
+            <!-- Campo oculto para NO_EMPLEADO -->
+            <input type="hidden" name="NO_EMPLEADO" value="<?php echo $noEmpleado; ?>">
 
-        <!-- Botón de guardar CONSIDERACIONES -->
-        <input type="submit" name="guardar" value="Guardar Observaciones" class="custom-button">
-        <!-- Botón de guardar CONSIDERACIONES -->
-        <input type="submit" name="pdf" value="Generar PDF" class="custom-button"><br><br><br>
-           <!-- Botón "Cerrar" -->
+            <!-- Campo textarea para CONSIDERACIONES -->
+            <div class="form-group">
+                <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
+                <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
+            </div>
+
+            <!-- Botón de guardar CONSIDERACIONES -->
+            <input type="submit" name="guardar" value="Guardar Observaciones" class="custom-button">
+        </form>
+
+        <!-- Botón "Cerrar" -->
     <a href="pag1.php" class="btn btn-primary">Cerrar</a>
     </div>
 </body>

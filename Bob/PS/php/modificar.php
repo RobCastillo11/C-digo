@@ -752,7 +752,7 @@
             <!-- Columna 1 -->
             <!-- Campo de texto para el Número de Empleado -->
             <label for="noEmpleado">Número de Empleado:</label>
-            <input type="text" id="noEmpleado" name="NO_EMPLEADO" required  value="<?php echo $rowAfiliados['NO_EMPLEADO']; ?>">
+            <input type="text" id="noEmpleado" name="NO_EMPLEADO" required readonly value="<?php echo $rowAfiliados['NO_EMPLEADO']; ?>">
             <br><br>
 
             <!-- Campo de texto para Afiliados con Horario -->
