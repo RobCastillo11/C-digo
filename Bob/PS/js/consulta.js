@@ -87,6 +87,19 @@ function getData(pagina) {
                 consultarCell.appendChild(consultarButton);
                 row.appendChild(consultarCell);
 
+                // Agregar botón de "PDF"
+                let pdfCell = document.createElement("td");
+                let pdfButton = document.createElement("button");
+                pdfButton.textContent = "PDF";
+                pdfButton.id = "pdfButton"; // Asignar un ID al botón
+                pdfButton.className = "btn btn-primary"; // Agregar la clase "btn btn-primary" al botón
+                pdfButton.addEventListener("click", function () {
+                    // Redireccionar a la página de reportes con el ID de empleado
+                    window.location.href = "reportes.php?NO_EMPLEADO=" + rowData.NO_EMPLEADO;
+                });
+                pdfCell.appendChild(pdfButton);
+                row.appendChild(pdfCell);
+
                 // Agregar la fila a la tabla
                 content.appendChild(row);
             });

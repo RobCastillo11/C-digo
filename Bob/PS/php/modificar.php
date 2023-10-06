@@ -527,6 +527,19 @@
                     <label for="grupo">Grupo:</label>
                     <input type="text" id="grupo" name="GRUPO" required  value="<?php echo $rowEstudio['GRUPO']; ?>">
                 </div>
+                
+                <!-- Campo de selección para CUENTA CON ACADEMIA -->
+                <div class="form-group">
+                    <label for="CCAC" class="small-label">CUENTA CON ACADEMIA:</label>
+                    <select class="form-control form-control-sm small-input" id="CCAC" name="CCAC">
+                        <option value="OP" <?php echo ($rowEstudio['CUENTA_CON_ACADEMIA'] == 'OP') ? 'selected' : ''; ?>>ELIGE UNA OPCIÓN</option>
+                        <option value="OPERATIVA" <?php echo ($rowEstudio['CUENTA_CON_ACADEMIA'] == 'OPERATIVA') ? 'selected' : ''; ?>>OPERATIVA</option>
+                        <option value="ADMINISTRATIVA" <?php echo ($rowEstudio['CUENTA_CON_ACADEMIA'] == 'ADMINISTRATIVA') ? 'selected' : ''; ?>>ADMINISTRATIVA</option>
+                        <option value="NO_CURSADA" <?php echo ($rowEstudio['CUENTA_CON_ACADEMIA'] == 'NO_CURSADA') ? 'selected' : ''; ?>>NO CURSADA</option>
+                        <option value="no_cuenta" <?php echo ($rowEstudio['CUENTA_CON_ACADEMIA'] == 'no_cuenta') ? 'selected' : ''; ?>>NO CUENTA</option>
+                    </select>
+                </div>
+
                 <!-- Campo de texto para la Generación -->
                 <div class="form-group">
                     <label for="generacion">Generación:</label>
