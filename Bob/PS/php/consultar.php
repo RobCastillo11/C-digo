@@ -32,7 +32,7 @@
 <section>
     <h2>Datos Generales</h2>
     <!-- Empieza Formulario 1 Generales-->
-    <form action="php2/cons.php" method="POST">
+    <form action="" method="POST">
         <div class="row">
             <div class="col-md-3">
                 <!-- Primera columna de campos -->
