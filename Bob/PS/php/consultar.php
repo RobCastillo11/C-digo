@@ -190,8 +190,6 @@
                 </div>
             </div>
         </div>
-     <!-- Botón de guardar Evaluación -->
-     <input type="submit" name="guardar" value="Guardar Evaluación"><br><br><br>
     </form>
 </section>
             <?php
@@ -361,8 +359,6 @@
             </div>
         </div>
 
-        <!-- Botón de guardar Datos Familiares -->
-        <input type="submit" name="guardar" value="Guardar Datos Familiares"><br><br><br>
     </form>
 </section>
 
@@ -443,8 +439,6 @@
             </div>
         </div>
 
-        <!-- Botón de guardar Evaluación -->
-        <input type="submit" name="guardar" value="Guardar Evaluación"><br><br><br>
     </form>
 </section>
             <?php
@@ -604,8 +598,6 @@
             </div>
         </div>
 
-        <!-- Botón de guardar Datos de Estudio -->
-        <input type="submit" name="guardar" value="Guardar Datos de Estudio"><br><br><br>
     </form>
 </section>
 
@@ -700,9 +692,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Botón de guardar Datos Militares -->
-        <input type="submit" name="guardar" value="Guardar Datos Militares"><br><br><br>
     </form>
 </section>
             <?php
@@ -1614,7 +1603,9 @@
         </div>
 
         <!-- Botón de guardar CONSIDERACIONES -->
-        <input type="submit" name="guardar" value="Guardar Observaciones" class="custom-button"><br><br><br>
+        <input type="submit" name="guardar" value="Guardar Observaciones" class="custom-button">
+        <!-- Botón de guardar CONSIDERACIONES -->
+        <input type="submit" name="pdf" value="Generar PDF" class="custom-button"><br><br><br>
            <!-- Botón "Cerrar" -->
     <a href="pag1.php" class="btn btn-primary">Cerrar</a>
     </div>
