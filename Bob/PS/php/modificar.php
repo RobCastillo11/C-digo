@@ -4,66 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
+    <link rel="stylesheet" href="../estilos/estilo_modificacion.css">
+
     <title>Modificación de Datos del Empleado</title>
-    <style>
-        /* Estilos para los campos de formulario */
-        .form-group label {
-            color: #4CAF50; /* Cambia el color de las etiquetas de los campos a un tono de verde elegante */
-        }
 
-        body {
-            background-color: #f8f9fa;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-        h1, h2 {
-            color: #007bff;
-        }
-        label {
-            font-weight: bold;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ced4da;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        .btn-primary {
-            background-color: #007bff;
-            color: #fff;
-            font-size: 16px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }        
-        .error-message {
-    color: red;
-}
-
-.custom-button {
-            background-color: #007bff; /* Color de fondo */
-            color: #fff; /* Color de texto */
-            padding: 10px 20px; /* Espaciado interior (arriba/abajo izquierda/derecha) */
-            border: none; /* Borde */
-            border-radius: 4px; /* Borde redondeado */
-            font-size: 16px; /* Tamaño de fuente */
-            cursor: pointer; /* Cambia el cursor al pasar el ratón */
-        }
-        
-    </style>
 </head>
 <body>
     <div class="container">
@@ -90,7 +34,7 @@
 <section>
     <h2>Datos Generales</h2>
     <!-- Empieza Formulario 1 Generales-->
-    <form action="php2/cons.php" method="POST">
+    <form action="php2/updates/upForm1.php" method="POST">
         <div class="row">
             <div class="col-md-3">
                 <!-- Primera columna de campos -->
@@ -102,17 +46,17 @@
                 <!-- Campo de texto para el NOMBRE -->
                 <div class="form-group">
                     <label for="nombre" id="lnombre">Nombre (s):</label>
-                    <input type="text" id="nombre" name="NOMBRE" required  value="<?php echo $rowGenerales['NOMBRE']; ?>">
+                    <input type="text" id="nombre" name="NOMBRE"  value="<?php echo $rowGenerales['NOMBRE']; ?>">
                 </div>
                 <!-- Campo de texto para el AP -->
                 <div class="form-group">
                     <label for="ap" id="lap">Apellido Paterno:</label>
-                    <input type="text" id="ap" name="AP" required  value="<?php echo $rowGenerales['AP']; ?>">
+                    <input type="text" id="ap" name="AP"  value="<?php echo $rowGenerales['AP']; ?>">
                 </div>
                 <!-- Campo de texto para el AM -->
                 <div class="form-group">
                     <label for="am" id="lam">Apellido Materno:</label>
-                    <input type="text" id="am" name="AM" required  value="<?php echo $rowGenerales['AM']; ?>">
+                    <input type="text" id="am" name="AM"  value="<?php echo $rowGenerales['AM']; ?>">
                 </div>
             </div>
 
@@ -121,22 +65,22 @@
                 <!-- Campo de texto para el FN -->
                 <div class="form-group">
                     <label for="fn" id="lfn">Fecha de Nacimiento:</label>
-                    <input type="text" id="fn" name="FN" required  value="<?php echo $rowGenerales['FN']; ?>">
+                    <input type="text" id="fn" name="FN"  value="<?php echo $rowGenerales['FN']; ?>">
                 </div>
                 <!-- Campo de texto para el EDAD -->
                 <div class="form-group">
                     <label for="edad" id="ledad">Edad:</label>
-                    <input type="text" id="edad" name="EDAD" required  value="<?php echo $rowGenerales['EDAD']; ?>">
+                    <input type="text" id="edad" name="EDAD" required readonly value="<?php echo $rowGenerales['EDAD']; ?>">
                 </div>
                 <!-- Campo de texto para el SEXO -->
                 <div class="form-group">
                     <label for="sexo" id="lsexo">Sexo:</label>
-                    <input type="text" id="sexo" name="SEXO" required  value="<?php echo $rowGenerales['SEXO']; ?>">
+                    <input type="text" id="sexo" name="SEXO"  value="<?php echo $rowGenerales['SEXO']; ?>">
                 </div>
                 <!-- Campo de texto para el CORREO -->
                 <div class="form-group">
                     <label for="correo" id="lcorreo">Correo:</label>
-                    <input type="text" id="correo" name="CORREO" required  value="<?php echo $rowGenerales['CORREO']; ?>">
+                    <input type="text" id="correo" name="CORREO"  value="<?php echo $rowGenerales['CORREO']; ?>">
                 </div>
             </div>
 
@@ -145,22 +89,22 @@
                 <!-- Campo de texto para el EC -->
                 <div class="form-group">
                     <label for="ec" id="lec">Estado Civil:</label>
-                    <input type="text" id="ec" name="EC" required  value="<?php echo $rowGenerales['EC']; ?>">
+                    <input type="text" id="ec" name="EC"  value="<?php echo $rowGenerales['EC']; ?>">
                 </div>
                 <!-- Campo de texto para el SMN -->
                 <div class="form-group">
                     <label for="smn" id="lsmn">Cartilla SMN:</label>
-                    <input type="text" id="smn" name="SMN" required  value="<?php echo $rowGenerales['SMN']; ?>">
+                    <input type="text" id="smn" name="SMN"  value="<?php echo $rowGenerales['SMN']; ?>">
                 </div>
                 <!-- Campo de texto para el LICENCIA -->
                 <div class="form-group">
                     <label for="licencia" id="llicencia">Licencia:</label>
-                    <input type="text" id="licencia" name="LICENCIA" required  value="<?php echo $rowGenerales['LICENCIA']; ?>">
+                    <input type="text" id="licencia" name="LICENCIA"  value="<?php echo $rowGenerales['LICENCIA']; ?>">
                 </div>
                 <!-- Campo de texto para el INEF -->
                 <div class="form-group">
                     <label for="ine_entrente" id="linef">INE Enfrente:</label>
-                    <input type="text" id="ine_entrente" name="INEF" required  value="<?php echo $rowGenerales['INEF']; ?>">
+                    <input type="text" id="ine_entrente" name="INEF"  value="<?php echo $rowGenerales['INEF']; ?>">
                 </div>
             </div>
 
@@ -169,22 +113,22 @@
                 <!-- Campo de texto para el INEA -->
                 <div class="form-group">
                     <label for="ine_atras" id="linea">INE Atras:</label>
-                    <input type="text" id="ine_atras" name="INEA" required  value="<?php echo $rowGenerales['INEA']; ?>">
+                    <input type="text" id="ine_atras" name="INEA"  value="<?php echo $rowGenerales['INEA']; ?>">
                 </div>
                 <!-- Campo de texto para el LN -->
                 <div class="form-group">
                     <label for="ln" id="lln">Lugar de Nacimiento:</label>
-                    <input type="text" id="ln" name="LN" required  value="<?php echo $rowGenerales['LN']; ?>">
+                    <input type="text" id="ln" name="LN"  value="<?php echo $rowGenerales['LN']; ?>">
                 </div>
                 <!-- Campo de texto para el CALLE -->
                 <div class="form-group">
                     <label for="calle" id="lcalle">Calle:</label>
-                    <input type="text" id="calle" name="CALLE" required  value="<?php echo $rowGenerales['CALLE']; ?>">
+                    <input type="text" id="calle" name="CALLE"  value="<?php echo $rowGenerales['CALLE']; ?>">
                 </div>
                 <!-- Campo de texto para el No_ext -->
                 <div class="form-group">
                     <label for="numero_exterior" id="lnumero_exterior">Número Exterior:</label>
-                    <input type="text" id="numero_exterior" name="No_ext" required  value="<?php echo $rowGenerales['No_ext']; ?>">
+                    <input type="text" id="numero_exterior" name="No_ext"  value="<?php echo $rowGenerales['No_ext']; ?>">
                 </div>
             </div>
         </div>
@@ -196,7 +140,7 @@
                 <!-- Campo de texto para el No_int -->
                 <div class="form-group">
                     <label for="numero_interior" id="lnumero_interior">Número Interior:</label>
-                    <input type="text" id="numero_interior" name="No_int" required  value="<?php echo $rowGenerales['No_int']; ?>">
+                    <input type="text" id="numero_interior" name="No_int"  value="<?php echo $rowGenerales['No_int']; ?>">
                 </div>
             </div>
 
@@ -205,7 +149,7 @@
                 <!-- Campo de texto para el COLONIA -->
                 <div class="form-group">
                     <label for="colonia" id="lcolonia">Colonia:</label>
-                    <input type="text" id="colonia" name="COLONIA" required  value="<?php echo $rowGenerales['COLONIA']; ?>">
+                    <input type="text" id="colonia" name="COLONIA"  value="<?php echo $rowGenerales['COLONIA']; ?>">
                 </div>
             </div>
 
@@ -214,7 +158,7 @@
                 <!-- Campo de texto para el MUNICIPIO -->
                 <div class="form-group">
                     <label for="municipio" id="lmunicipio">Municipio:</label>
-                    <input type="text" id="municipio" name="MUNICIPIO" required  value="<?php echo $rowGenerales['MUNICIPIO']; ?>">
+                    <input type="text" id="municipio" name="MUNICIPIO"  value="<?php echo $rowGenerales['MUNICIPIO']; ?>">
                 </div>
             </div>
 
@@ -223,7 +167,7 @@
                 <!-- Campo de texto para el ESTADO -->
                 <div class="form-group">
                     <label for="estado" id="lestado">Estado:</label>
-                    <input type="text" id="estado" name="ESTADO" required  value="<?php echo $rowGenerales['ESTADO']; ?>">
+                    <input type="text" id="estado" name="ESTADO"  value="<?php echo $rowGenerales['ESTADO']; ?>">
                 </div>
             </div>
         </div>
@@ -235,7 +179,7 @@
                 <!-- Campo de texto para el CP -->
                 <div class="form-group">
                     <label for="cp" id="lcp">Código Postal:</label>
-                    <input type="text" id="cp" name="CP" required  value="<?php echo $rowGenerales['CP']; ?>">
+                    <input type="text" id="cp" name="CP"  value="<?php echo $rowGenerales['CP']; ?>">
                 </div>
             </div>
 
@@ -244,7 +188,7 @@
                 <!-- Campo de texto para el CURP -->
                 <div class="form-group">
                     <label for="curp" id="lcurp">CURP:</label>
-                    <input type="text" id="curp" name="CURP" required  value="<?php echo $rowGenerales['CURP']; ?>">
+                    <input type="text" id="curp" name="CURP"  value="<?php echo $rowGenerales['CURP']; ?>">
                 </div>
             </div>
         </div>
@@ -255,9 +199,9 @@
 </section>
 
             <?php
-       } else {
-        echo '<p class="error-message">Datos generales no encontrados.</p>';
-    }
+        } else {
+            echo '<p class="error-message">Datos generales no encontrados.</p>';
+        }
 
         // Cierra la conexión después de consultar los datos generales
         $conn->close();
@@ -278,7 +222,7 @@
   <section>
     <h2>Datos Familiares</h2>
     <!-- Formulario 2 Datos de Familia -->
-    <form action="" method="POST">
+    <form action="php2/updates/upForm2.php" method="POST">
         <div class="row">
             <div class="col-md-3">
                 <!-- Primera columna de campos -->
@@ -347,7 +291,7 @@
                 <!-- Campo de texto para ¿CUANTAS ESPOSAS TIENE? -->
                 <div class="form-group">
                     <label for="nde">Número de Esposas:</label>
-                    <input type="text" id="nde" name="NDP" required  value="<?php echo $rowfamilia['NDE']; ?>">
+                    <input type="text" id="nde" name="NDE" required  value="<?php echo $rowfamilia['NDE']; ?>">
                 </div>
                 <!-- Campo de texto para NOMBRE (S) DE ESPOSA -->
                 <div class="form-group">
@@ -368,8 +312,8 @@
                 <!-- Quinta columna de campos -->
                 <!-- Campo de texto para APELLIDO MATERNO -->
                 <div class="form-group">
-                    <label for="dialecto">Apellido 2 Esposa:</label>
-                    <input type="text" id="dialecto" name="DIALECTO" required  value="<?php echo $rowfamilia['AMEA']; ?>">
+                    <label for="amea">Apellido 2 Esposa:</label>
+                    <input type="text" id="amea" name="AMEA" required  value="<?php echo $rowfamilia['AMEA']; ?>">
                 </div>
             </div>
 
@@ -383,7 +327,7 @@
                 <!-- Campo de texto para NOMBRE (S) DE HIJO (S) -->
                 <div class="form-group">
                     <label for="ndh">Nombre de hijos:</label>
-                    <input type="text" id="ndh" name "NDH" required  value="<?php echo $rowfamilia['NDH']; ?>">
+                    <input type="text" id="ndh" name= "NDH" required  value="<?php echo $rowfamilia['NDH']; ?>">
                 </div>
                 <!-- Campo de texto para APELLIDO PATERNO -->
                 <div class="form-group">
@@ -449,7 +393,7 @@
            <section>
     <h2>Evaluación Anual del Desempeño</h2>
     <!-- Formulario de Evaluación -->
-    <form action="" method="POST">
+    <form action="php2/updates/upForm3.php" method="POST">
         <div class="row">
             <div class="col-md-3">
                 <!-- Primera columna de campos -->
@@ -532,7 +476,7 @@
      <section>
     <h2>Datos de Estudio</h2>
     <!-- Formulario de Datos de Estudio -->
-    <form action="" method="POST">
+    <form action="php2/updates/upForm4.php" method="POST">
         <div class="row">
             <div class="col-md-3">
                 <!-- Primera columna de campos -->
@@ -693,7 +637,7 @@
             <section>
     <h2>Datos Militares</h2>
     <!-- Formulario de Datos Militares -->
-    <form action="" method="POST">
+    <form action="php2/updates/upForm5.php" method="POST">
         <div class="row">
             <div class="col-md-3">
                 <!-- Primera columna de campos -->
@@ -790,7 +734,7 @@
             <section>
     <h2>Datos de Afiliados</h2>
     <!-- Formulario de Datos de Afiliados en 2 columnas -->
-    <form action="" method="POST" style="display: flex; flex-wrap: wrap;">
+    <form action="php2/updates/upForm6.php" method="POST" style="display: flex; flex-wrap: wrap;">
         <div style="flex: 1; margin-right: 10px;">
             <!-- Columna 1 -->
             <!-- Campo de texto para el Número de Empleado -->
@@ -851,7 +795,7 @@
            <section>
     <h2>Datos del Empleado</h2>
     <!-- Formulario de Datos del Empleado en 4 columnas -->
-    <form action="" method="POST">
+    <form action="php2/updates/upForm7.php" method="POST">
         <div style="display: flex; flex-wrap: wrap;">
             <div style="flex: 1; margin-right: 10px;">
                 <!-- Columna 1 -->
@@ -1044,7 +988,7 @@
             <section>
     <h2>Datos Laborales del Personal Misionado</h2>
     <!-- Formulario de Datos Laborales del Personal Misionado en 4 columnas -->
-    <form action="" method="POST">
+    <form action="php2/updates/upForm8.php" method="POST">
         <div style="display: flex; flex-wrap: wrap;">
             <div style="flex: 1; margin-right: 10px;">
                 <!-- Columna 1 -->
@@ -1120,7 +1064,7 @@
           <section>
     <h2>Datos de Vestimenta</h2>
     <!-- Formulario de Datos de Vestimenta en 4 columnas -->
-    <form action="" method="POST">
+    <form action="php2/updates/upForm9.php" method="POST">
         <div style="display: flex; flex-wrap: wrap;">
             <div style="flex: 1; margin-right: 10px;">
                 <!-- Columna 1 -->
@@ -1212,7 +1156,7 @@
            <section>
     <h2>Datos de Comisiones</h2>
     <!-- Formulario de Datos de Comisiones en 4 columnas -->
-    <form action="" method="POST">
+    <form action="php2/updates/upForm10.php" method="POST">
         <div style="display: flex; flex-wrap: wrap;">
             <div style="flex: 1; margin-right: 10px;">
                 <!-- Columna 1 -->
@@ -1275,7 +1219,7 @@
             <section>
     <h2>Datos de Movimientos por Cambio ASDC</h2>
     <!-- Formulario de Datos de Movimientos por Cambio ASDC en 4 columnas -->
-    <form action="" method="POST">
+    <form action="php2/updates/upForm11.php" method="POST">
         <div style="display: flex; flex-wrap: wrap;">
             <div style="flex: 1; margin-right: 10px;">
                 <!-- Columna 1 -->
@@ -1339,7 +1283,7 @@
           <section>
     <h2>Datos del Empleo</h2>
     <!-- Formulario de Datos del Empleo en 4 columnas -->
-    <form action="" method="POST">
+    <form action="php2/updates/upForm12.php" method="POST">
         <div style="display: flex; flex-wrap: wrap;">
             <div style="flex: 1; margin-right: 10px;">
                 <!-- Columna 1 -->
@@ -1500,7 +1444,7 @@
            <section>
     <h2>Categorización</h2>
     <!-- Formulario de Categorización en 4 columnas -->
-    <form action="" method="POST">
+    <form action="php2/updates/upForm13.php" method="POST">
         <div style="display: flex; flex-wrap: wrap;">
             <div style="flex: 1; margin-right: 10px;">
                 <!-- Columna 1 -->
@@ -1557,7 +1501,7 @@
             <section>
     <h2>Cursos y Reconocimientos de Cursos</h2>
     <!-- Formulario de Cursos y Reconocimientos de Cursos en 4 columnas -->
-    <form action="" method="POST">
+    <form action="php2/updates/upForm14.php" method="POST">
         <div style="display: flex; flex-wrap: wrap;">
             <div style="flex: 1; margin-right: 10px;">
                 <!-- Columna 1 -->
@@ -1642,7 +1586,7 @@
             <section>
     <h2>Incapacidad</h2>
     <!-- Formulario de Incapacidad en 4 columnas -->
-    <form action="" method="POST">
+    <form action="php2/updates/upForm15.php" method="POST">
         <div style="display: flex; flex-wrap: wrap;">
             <div style="flex: 1; margin-right: 10px;">
                 <!-- Columna 1 -->
@@ -1686,7 +1630,7 @@
         // Cierra la conexión después de consultar datos de Incapacidad
         $conn->close();
         ?>
-           <!-- Botón "Cerrar" -->
+        <!-- Botón "Cerrar" -->
     <a href="pag1.php" class="btn btn-primary">Cerrar</a>
     </div>
 </body>
