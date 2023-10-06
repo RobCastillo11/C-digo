@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $nombre_usuario = $_POST['nombre_usuario'];
     $contrasena = $_POST['pass'];
+    $nivel_usuario = $_POST['nivel'];
 
     // Validación de datos
     if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
@@ -17,12 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Hash de la contraseña
     $contrasena_hash = password_hash($contrasena, PASSWORD_DEFAULT);
 
-    // Inserta los datos en la base de datos
-    $sql = "INSERT INTO ps1.usuarios (nombre, apellido, email, usuario, pass) VALUES (?, ?, ?, ?, ?)";
+    // Inserta los datos en la base de datos, incluyendo el nivel de usuario
+    $sql = "INSERT INTO ps1.usuarios (nombre, apellido, email, usuario, pass, nivel) VALUES (?, ?, ?, ?, ?, ?)";
     
     try {
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssss", $nombre, $apellido, $email, $nombre_usuario, $contrasena_hash);
+        $stmt->bind_param("ssssss", $nombre, $apellido, $email, $nombre_usuario, $contrasena_hash, $nivel_usuario);
         
         if ($stmt->execute()) {
             // Registro exitoso, redirige al usuario a una página de inicio de sesión exitoso
@@ -45,5 +46,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
-
 ?>
+
