@@ -39,4 +39,3 @@ function generarPDF(nombre, apellido, mensaje) {
     // Guarda el PDF con un nombre específico
     doc.save("DatosGenerales.pdf");
 }
-

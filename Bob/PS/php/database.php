@@ -2,7 +2,7 @@
 // Configuración de la base de datos
 $servername = "localhost"; // Cambia esto si tu servidor MySQL está en otro lugar
 $username = "root";
-$password = "";
+$password = "Halo1998";
 $dbname = "ps1";
 
 // Crear la conexión
