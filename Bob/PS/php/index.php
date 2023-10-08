@@ -31,7 +31,7 @@ if (isset($_GET['registroExitoso']) && $_GET['registroExitoso'] == 'true') {
     <span class="close-btn"> 
         <img src="../imagenes/x.png">
     </span>
-    <form id="login-form" method="POST" action="pag1.php">
+    <form id="login-form" method="POST" action="login.php">
     <input type="text" name="usuario" placeholder="usuario">
     <input type="password" name="pass" placeholder="Password">
     <button type="submit">Iniciar sesión</button>

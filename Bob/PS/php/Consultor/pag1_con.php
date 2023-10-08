@@ -8,7 +8,7 @@ session_start(); // Inicia la sesión
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../estilos/styles1.css">
+    <link rel="stylesheet" href="../../estilos/styles1.css">
     
     <!-- Agrega tus propios estilos y scripts aquí -->
 </head>
@@ -16,10 +16,10 @@ session_start(); // Inicia la sesión
 
 <header>
     <div class="logo-left">
-        <img src="../imagenes/guardia_civil.png" alt="Logo Izquierda">
+        <img src="../../imagenes/guardia_civil.png" alt="Logo Izquierda">
     </div>
     <div class="logo-right">
-        <img src="../imagenes/secretaria_de_suguridad.png" alt="Logo Derecha">
+        <img src="../../imagenes/secretaria_de_suguridad.png" alt="Logo Derecha">
     </div>
 </header>
 
@@ -100,6 +100,6 @@ session_start(); // Inicia la sesión
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="../js/consulta.js"></script>
+<script src="consulta_con.js"></script>
 </body>
 </html>

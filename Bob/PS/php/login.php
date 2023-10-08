@@ -43,28 +43,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Redirigir según el nivel de usuario
                 if ($nivelUsuario == "Avanzado") {
                     header("Location: pag1.php");
+                    exit();
                 } elseif ($nivelUsuario == "Consultor") {
                     header("Location: Consultor/pag1_con.php");
+                    exit();
                 } else {
                     // Nivel de usuario desconocido o no manejado
-                    header("Location: index.php");
+                    $error_message = "Nivel de usuario no válido";
+                    //header("Location: index.php");
+                    exit();
                 }
-                exit();
             } else {
                 // No se pudo obtener el nivel de usuario, redirige a una página predeterminada
-                header("Location: index.php");
+                $error_message = "Error al obtener el nivel de usuario";
+                //header("Location: index.php");
                 exit();
             }
         } else {
             // Contraseña incorrecta
-            header("Location: index.php?error=Contraseña incorrecta");
+            $error_message = "Contraseña incorrecta";
+            //header("Location: index.php?error=Contraseña incorrecta");
             exit();
         }
     } else {
         // Usuario no encontrado
-        header("Location: index.php?error=Usuario no encontrado");
+        $error_message = "Usuario no encontrado";
+        //header("Location: index.php?error=Usuario no encontrado");
         exit();
     }
+
 }
 
 $conn->close();

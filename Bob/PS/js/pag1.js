@@ -794,7 +794,7 @@ const formTemplates = {
             <option value="DIRECCION GENERAL DE SEGURIDAD PUBLICA DEL ESTADO">DIRECCION GENERAL DE SEGURIDAD PUBLICA DEL ESTADO</option>
             <option value="SECRETARIA DE SEGURIDAD Y PROTECCION CIUDADANA">SECRETARIA DE SEGURIDAD Y PROTECCION CIUDADANA</option>
             <option value="DIRECCION GENERAL DE TECNOLOGIA EN SEGURIDAD PUBLICA">DIRECCION GENERAL DE TECNOLOGIA EN SEGURIDAD PUBLICA</option>
-        </select>
+        </select> 
     </div>    
     </div>
       <div class="col-md-3">
