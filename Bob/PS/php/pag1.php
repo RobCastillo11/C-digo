@@ -128,8 +128,8 @@ session_start(); // Inicia la sesión
         </div>
     </div>
     <script>
-        // Función para mostrar el contenido de Registro
-        function mostrarRegistro() {
+      // Función para mostrar el contenido de Registro
+      function mostrarRegistro() {
             document.getElementById('registro').style.display = 'block';
             document.getElementById('consulta').style.display = 'none';
         }

@@ -11,7 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['NOMBRE'];
     $ap = $_POST['AP'];
     $am = $_POST['AM'];
-    $fn = $_POST['FN']; // Fecha de Nacimiento
+    $fn = $_POST['FN'];
+    $edad = $_POST['EDAD'];
     $sexo = $_POST['SEXO'];
     $correo = $_POST['CORREO'];
     $ec = $_POST['EC'];
@@ -28,11 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $estado = $_POST['ESTADO'];
     $cp = $_POST['CP'];
     $curp = $_POST['CURP'];
-
-    // Calcular la edad a partir de la fecha de nacimiento
-    $fechaNacimiento = new DateTime($fn);
-    $fechaActual = new DateTime();
-    $edad = $fechaNacimiento->diff($fechaActual)->y;
 
     // Actualizar los datos en la base de datos
     $sqlUpdate = "UPDATE generales SET 

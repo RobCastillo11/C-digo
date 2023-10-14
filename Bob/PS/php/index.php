@@ -19,19 +19,19 @@ if (isset($_GET['registroExitoso']) && $_GET['registroExitoso'] == 'true') {
 <body>
   
 <img src="../imagenes/guardia_civil.png" class="logo-top-left" alt="Logo 1">
-<img src="../imagenes/secretaria_de_suguridad.png" class="logo-top-right" alt="Logo 2">
+  <img src="../imagenes/secretaria_de_suguridad.png" class="logo-top-right" alt="Logo 2">
 
-<div id="login-button">
+  <div id="login-button">
     <img src="../imagenes/login1.png">
-</div>
+  </div>
 
-<!-- Log in-->
-<div id="container">
+  <!-- Log in-->
+  <div id="container">
     <h1>¡Bienvenido!</h1>
     <span class="close-btn"> 
         <img src="../imagenes/x.png">
     </span>
-    <form id="login-form" method="POST" action="login.php">
+    <form id="login-form" method="POST" action="pag1.php">
     <input type="text" name="usuario" placeholder="usuario">
     <input type="password" name="pass" placeholder="Password">
     <button type="submit">Iniciar sesión</button>
@@ -44,8 +44,8 @@ if (isset($_GET['registroExitoso']) && $_GET['registroExitoso'] == 'true') {
 </form>
 </div>
 
-<!-- Registro de usuario -->
-<div id="register-container">
+<!--Registro de usuario-->
+  <div id="register-container">
     <h1>Registro</h1>
     <?php if ($registroExitoso) { ?>
       <div id="registro-exitoso" style="color: green;">
@@ -61,19 +61,11 @@ if (isset($_GET['registroExitoso']) && $_GET['registroExitoso'] == 'true') {
       <input type="email" name="email" placeholder="E-mail">
       <input type="text" name="nombre_usuario" placeholder="Usuario">
       <input type="password" name="pass" placeholder="Password">
-      
-      <!-- Cambia el atributo name a "nivel_usuario" -->
-      <label for="nivel_usuario">Nivel de Usuario:</label>
-      <select name="nivel_usuario" id="nivel_usuario">
-        <option value="Avanzado">Avanzado</option>
-        <option value="Consultor">Consultor</option>
-      </select>
-
       <button type="submit">Registrarse</button>
     </form>
-</div>
+  </div>
 
-<!-- Recuperar contraseña -->
+ <!-- Recuperar contraseña -->
 <div id="forgotten-container" class="caja_popup" id="formrecuperar">
   <form action="email_reset.php" class="contenedor_popup" method="POST">
     <h1>Restablecer contraseña</h1>
@@ -96,7 +88,7 @@ if (isset($_GET['registroExitoso']) && $_GET['registroExitoso'] == 'true') {
   </form>
 </div>
 
-<script>
+  <script>
   window.addEventListener('DOMContentLoaded', (event) => {
     // Verifica si la variable de registroExitoso está configurada como true
     <?php if ($registroExitoso) { ?>
@@ -108,10 +100,14 @@ if (isset($_GET['registroExitoso']) && $_GET['registroExitoso'] == 'true') {
   });
 </script>
   
-<img src="../imagenes/holograma.png" class="logo-bottom" alt="Logo 3">
-<script src="../js/cdnjs.cloudflare.com_ajax_libs_gsap_3.9.1_gsap.min.js"></script>
-<script src="../js/code.jquery.com_jquery-3.6.0.min.js"></script>
-<script src="../js/ind.js"></script>
+  <img src="../imagenes/holograma.png" class="logo-bottom" alt="Logo 3">
+  <script src="../js/cdnjs.cloudflare.com_ajax_libs_gsap_3.9.1_gsap.min.js"></script>
+  <script src="../js/code.jquery.com_jquery-3.6.0.min.js"></script>
+  <script src="../js/ind.js"></script>
 
 </body>
 </html>
+
+
+
+

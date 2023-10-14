@@ -10,10 +10,10 @@ if (
     $pi = $_POST["pi"];
     $OBS = $_POST["OBS"];
     $FDTD = $_POST["FDTD"];
-    $IPGG = $_POST["IPGG"];
+    $IPGG = $_POST["IPGG"]; 
 
     // Insertar datos en la base de datos utilizando una sentencia preparada
-    $stmt = $conn->prepare("INSERT INTO tabla_formulario15 (NO_EMPLEADO_15, FECHA_INICIO_PERSONAL_INCAPACITADO, OBSERVACIONES, FECHA_TERMINACION_PERSONAL_INCAPACITADO, INCAPACIDAD_PENDIENTE_GUARDIA_GENERAL) 
+    $stmt = $conn->prepare("INSERT INTO incapacida (NO_EMPLEADO_15, FECHA_INICIO_PERSONAL_INCAPACITADO, OBSERVACIONES, FECHA_TERMINACION_PERSONAL_INCAPACITADO, INCAPACIDAD_PENDIENTE_GUARDIA_GENERAL) 
     VALUES (?, ?, ?, ?, ?)");
 
     $stmt->bind_param("sssss", $NO_EMPLEADO_15, $pi, $OBS, $FDTD, $IPGG);

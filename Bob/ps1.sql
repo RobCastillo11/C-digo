@@ -262,7 +262,7 @@ INSERT INTO `datos_del_empleo` (`ID`, `NO_EMPLEADO`, `NO`, `NA`, `NIVEL`, `CATEG
 CREATE TABLE `datos_de_estudio` (
   `ID` int(11) NOT NULL,
   `NO_EMPLEADO` varchar(255) NOT NULL,
-  `TDE` varchar(255) NOT NULL,
+  `TDE` date NOT NULL,
   `ESTUDIOS` varchar(255) NOT NULL,
   `ESPECIALIDAD` varchar(255) NOT NULL,
   `DOCUMENTO` varchar(255) NOT NULL,
@@ -282,6 +282,30 @@ CREATE TABLE `datos_de_estudio` (
   `PEAG` varchar(255) NOT NULL,
   `CPC` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+INSERT INTO datos_de_estudio (NO_EMPLEADO, TDE, ESTUDIOS, ESPECIALIDAD, DOCUMENTO, INSTITUTO, CFME, GRUPO, CCAC, GENERACION, TdG, DURACION, TDS, CDAPT, CPAF, TallasDomicilios, NDC, REPROBO_EXAMEN, EDLC, PEAG, CPC)
+VALUES ('123456', '10-10-2023', 'Licenciatura en Informática', 'Informática', 'Diploma de Licenciatura', 'Universidad XYZ', 'Curso A', 'Grupo 1', 'OPERATIVA', 'Generación 2020', 'A', '4 años', '8 años', 'Aprobado', 'Aprobado', 'Sí', '123', 'No', 'Sí', 'Sí', 'Curso X');
+
+
+INSERT INTO datos_de_estudio (NO_EMPLEADO, TDE, ESTUDIOS, ESPECIALIDAD, DOCUMENTO, INSTITUTO, CFME, GRUPO, CCAC, GENERACION, TdG, DURACION, TDS, CDAPT, CPAF, TallasDomicilios, NDC, REPROBO_EXAMEN, EDLC, PEAG, CPC)
+VALUES ('789012', '2023-09-15', 'Ingeniería Eléctrica', 'Electrónica', 'Título de Ingeniero', 'Universidad ABC', 'Curso B', 'Grupo 2', 'ADMINISTRATIVA', 'Generación 2019', 'B', '5 años', '10 años', 'Aprobado', 'Aprobado', 'No', '456', 'Sí', 'No', 'No', 'Curso Y');
+
+
+INSERT INTO datos_de_estudio (NO_EMPLEADO, TDE, ESTUDIOS, ESPECIALIDAD, DOCUMENTO, INSTITUTO, CFME, GRUPO, CCAC, GENERACION, TdG, DURACION, TDS, CDAPT, CPAF, TallasDomicilios, NDC, REPROBO_EXAMEN, EDLC, PEAG, CPC)
+VALUES ('456789', '2022-05-20', 'Licenciatura en Economía', 'Economía', 'Diploma de Licenciatura', 'Universidad DEF', 'Curso C', 'Grupo 3', 'NO_CURSADA', 'Generación 2018', 'C', '4 años', '6 años', 'Aprobado', 'No aplica', 'Sí', '789', 'No', 'Sí', 'No', 'Curso Z');
+
+
+INSERT INTO datos_de_estudio (NO_EMPLEADO, TDE, ESTUDIOS, ESPECIALIDAD, DOCUMENTO, INSTITUTO, CFME, GRUPO, CCAC, GENERACION, TdG, DURACION, TDS, CDAPT, CPAF, TallasDomicilios, NDC, REPROBO_EXAMEN, EDLC, PEAG, CPC)
+VALUES ('345678', '2021-12-03', 'Licenciatura en Derecho', 'Derecho', 'Diploma de Licenciatura', 'Universidad GHI', 'Curso D', 'Grupo 4', 'NO CUENTA', 'Generación 2017', 'D', '4 años', '5 años', 'Aprobado', 'No aplica', 'No', '654', 'Sí', 'Sí', 'No', 'Curso W');
+
+
+INSERT INTO datos_de_estudio (NO_EMPLEADO, TDE, ESTUDIOS, ESPECIALIDAD, DOCUMENTO, INSTITUTO, CFME, GRUPO, CCAC, GENERACION, TdG, DURACION, TDS, CDAPT, CPAF, TallasDomicilios, NDC, REPROBO_EXAMEN, EDLC, PEAG, CPC)
+VALUES ('901234', '2020-08-10', 'Licenciatura en Psicología', 'Psicología', 'Diploma de Licenciatura', 'Universidad JKL', 'Curso E', 'Grupo 5', 'OPERATIVA', 'Generación 2016', 'E', '4 años', '7 años', 'Aprobado', 'Aprobado', 'Sí', '987', 'No', 'No', 'No', 'Curso V');
+
+
+
+
 
 -- --------------------------------------------------------
 

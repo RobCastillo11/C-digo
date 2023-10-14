@@ -35,13 +35,24 @@ if (
 
     $stmt->bind_param("ssssssssssssssssssssss", $no_empleado, $nombre, $ap, $am, $fn, $edad, $sexo, $correo, $ec, $smn, $licencia, $if, $ia, $ln, $calle, $no_int, $no_ext, $colonia, $municipio, $estado, $cp, $curp);
 
-    if ($stmt->execute()) {
-        $archivoJavaScript = 'js/archivo.js';
-    } else {
-        echo "Error al insertar datos: " . $stmt->error;
-    }
+if ($stmt->execute()) {
+    $archivoJavaScript = 'js/archivo.js';
 
-    $stmt->close();
+    // Obtener los datos recién insertados
+    $rowGenerales = array(
+        'NO_EMPLEADO' => $no_empleado,
+        'NOMBRE' => $nombre,
+        'AP' => $ap,
+        // Agregar otros campos aquí
+    );
+
+    // Guardar los datos en una sesión
+    $_SESSION['rowGenerales'] = $rowGenerales;
+} else {
+    echo "Error al insertar datos: " . $stmt->error;
+}
+
+$stmt->close();
 } else {
     echo "Error: Datos incompletos o incorrectos.";
 }

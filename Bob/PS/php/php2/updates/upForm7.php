@@ -8,7 +8,7 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los datos del formulario
     $noEmpleado7 = $_POST['NO_EMPLEADO_7'];
-    $direccionActual = $_POST['DIRECCION_ACTUAL']; // Esto obtendrá el valor seleccionado en el select
+    $direccionActual = $_POST['DIRECCION_ACTUAL'];
     $area1 = $_POST['AREA1'];
     $funcion = $_POST['FUNCION'];
     $dde = $_POST['DDE'];

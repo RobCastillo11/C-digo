@@ -4,12 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../estilos/estilo_consulta.css">
+
     <title>Consulta de Empleado</title>
+ 
 </head>
+<style>
+        /* Estilos para los campos de formulario */
+        .form-group label {
+            color: #4CAF50; /* Cambia el color de las etiquetas de los campos a un tono de verde elegante */
+        }
+
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            color: #007bff;
+        }
+        label {
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }        
+        .error-message {
+    color: red;
+}
+
+.custom-button {
+            background-color: #007bff; /* Color de fondo */
+            color: #fff; /* Color de texto */
+            padding: 10px 20px; /* Espaciado interior (arriba/abajo izquierda/derecha) */
+            border: none; /* Borde */
+            border-radius: 4px; /* Borde redondeado */
+            font-size: 16px; /* Tamaño de fuente */
+            cursor: pointer; /* Cambia el cursor al pasar el ratón */
+        }
+    </style>
 <body>
-    <div class="container">
+<form action="generar_pdf.php" method="POST">
+<div class="container">
         <h1 id="title_generales">Datos del empleado</h1>
+
+        <input type="text" id="searchField" placeholder="Buscar etiqueta..." onkeyup="searchLabels()">
 
         <?php
         require 'database.php';
@@ -32,7 +93,7 @@
 <section>
     <h2>Datos Generales</h2>
     <!-- Empieza Formulario 1 Generales-->
-    <form action="" method="POST">
+    <form action="php2/cons.php" method="POST">
         <div class="row">
             <div class="col-md-3">
                 <!-- Primera columna de campos -->
@@ -190,6 +251,7 @@
                 </div>
             </div>
         </div>
+
     </form>
 </section>
             <?php
@@ -213,7 +275,7 @@
         if ($resultfamilia->num_rows > 0) {
             $rowfamilia = $resultfamilia->fetch_assoc();
             ?>
-  <section>
+ <section>
     <h2>Datos Familiares</h2>
     <!-- Formulario 2 Datos de Familia -->
     <form action="" method="POST">
@@ -285,17 +347,17 @@
                 <!-- Campo de texto para ¿CUANTAS ESPOSAS TIENE? -->
                 <div class="form-group">
                     <label for="nde">Número de Esposas:</label>
-                    <input type="text" id="nde" name="NDP" required readonly value="<?php echo $rowfamilia['NDE']; ?>">
+                    <input type="text" id="nde" name="NDE" required readonly value="<?php echo $rowfamilia['NDE']; ?>">
                 </div>
                 <!-- Campo de texto para NOMBRE (S) DE ESPOSA -->
                 <div class="form-group">
                     <label for="nes">Nombre de Esposas:</label>
-                    <input type="text" id="nes" name="NES" required readonly value="<?php echo $rowfamilia['NES']; ?>">
+                    <input type="text" id="nes" name="NES">
                 </div>
                 <!-- Campo de texto para APELLIDO PATERNO -->
                 <div class="form-group">
                     <label for="apea">Apellido 1 Esposa:</label>
-                    <input type="text" id="apea" name="APEA" required readonly value="<?php echo $rowfamilia['APEA']; ?>">
+                    <input type="text" id="apea" name="APEA">
                 </div>
             </div>
         </div>
@@ -307,7 +369,7 @@
                 <!-- Campo de texto para APELLIDO MATERNO -->
                 <div class="form-group">
                     <label for="dialecto">Apellido 2 Esposa:</label>
-                    <input type="text" id="dialecto" name="DIALECTO" required readonly value="<?php echo $rowfamilia['AMEA']; ?>">
+                    <input type="text" id="dialecto" name="AMEA">
                 </div>
             </div>
 
@@ -321,12 +383,12 @@
                 <!-- Campo de texto para NOMBRE (S) DE HIJO (S) -->
                 <div class="form-group">
                     <label for="ndh">Nombre de hijos:</label>
-                    <input type="text" id="ndh" name "NDH" required readonly value="<?php echo $rowfamilia['NDH']; ?>">
+                    <input type="text" id="ndh" name="NDH">
                 </div>
                 <!-- Campo de texto para APELLIDO PATERNO -->
                 <div class="form-group">
                     <label for="apdh">Apellido 1 Hijo:</label>
-                    <input type="text" id="apdh" name="APDH" required readonly value="<?php echo $rowfamilia['APDH']; ?>">
+                    <input type="text" id="apdh" name="APDH">
                 </div>
             </div>
 
@@ -335,17 +397,17 @@
                 <!-- Campo de texto para APELLIDO MATERNO -->
                 <div class="form-group">
                     <label for="amdh">Apellido 2 Hijo:</label>
-                    <input type="text" id="amdh" name="AMDH" required readonly value="<?php echo $rowfamilia['AMDH']; ?>">
+                    <input type="text" id="amdh" name="AMDH">
                 </div>
                 <!-- Campo de texto para SEXO -->
                 <div class="form-group">
                     <label for="sexoh">Sexo Hijo:</label>
-                    <input type="text" id="sexoh" name="SEXOH" required readonly value="<?php echo $rowfamilia['SEXOH']; ?>">
+                    <input type="text" id="sexoh" name="SEXOH">
                 </div>
                 <!-- Campo de texto para FECHA DE NACIMIENTO -->
                 <div class="form-group">
                     <label for="fnh">Fecha de Nacimiento Hijo:</label>
-                    <input type="text" id="fnh" name="FNH" required readonly value="<?php echo $rowfamilia['FNH']; ?>">
+                    <input type="text" id="fnh" name="FNH">
                 </div>
             </div>
 
@@ -354,14 +416,12 @@
                 <!-- Campo de texto para EDAD -->
                 <div class="form-group">
                     <label for="edadh">Edad Hijo:</label>
-                    <input type="text" id="edadh" name="EDADH" required readonly value="<?php echo $rowfamilia['EDADH']; ?>">
+                    <input type="text" id="edadh" name="EDADH">
                 </div>
             </div>
         </div>
-
     </form>
 </section>
-
             <?php
       } else {
         echo '<p class="error-message">Datos familiares no encontrados.</p>';
@@ -371,8 +431,8 @@
         $conn->close();
         ?>
 
-                <!--Consulta los datos de evaluación anual del desempeño-->
-                <?php
+                        <!--Consulta los datos de evaluación anual del desempeño-->
+                        <?php
         require 'database.php'; // Vuelve a incluir la conexión a la base de datos
 
         $sqlEvaluacion = "SELECT * FROM valucion_anual_desempeño WHERE NO_EMPLEADO_3 = '$noEmpleado'";
@@ -439,6 +499,8 @@
             </div>
         </div>
 
+        <!-- Botón de guardar Evaluación -->
+        <input type="submit" name="guardar" value="Guardar Evaluación"><br><br><br>
     </form>
 </section>
             <?php
@@ -472,13 +534,13 @@
                 <!-- Primera columna de campos -->
                 <!-- Campo de texto para el Número de Empleado -->
                 <div class="form-group">
-                    <label for="noEmpleado">Número de Empleado:</label>
-                    <input type="text" id="noEmpleado" name="NO_EMPLEADO" required readonly value="<?php echo $rowEstudio['NO_EMPLEADO']; ?>">
+                    <label for="NO_EMPLEADO">Número de Empleado:</label>
+                    <input type="text" id="NO_EMPLEADO_4" name="NO_EMPLEADO_4" required readonly value="<?php echo $rowEstudio['NO_EMPLEADO']; ?>">
                 </div>
                 <!-- Campo de texto para la Terminación de Estudio -->
                 <div class="form-group">
                     <label for="terminacionEstudio">Terminación de Estudio:</label>
-                    <input type="text" id="terminacionEstudio" name="TERMINACION_DE_ESTUDIO" required readonly value="<?php echo $rowEstudio['TERMINACION_DE_ESTUDIO']; ?>">
+                    <input type="date" id="TDE" name="TDE" required readonly value="<?php echo $rowEstudio['TDE']; ?>">
                 </div>
             </div>
 
@@ -487,12 +549,12 @@
                 <!-- Campo de texto para los Estudios -->
                 <div class="form-group">
                     <label for="estudios">Estudios:</label>
-                    <input type="text" id="estudios" name="ESTUDIOS" required readonly value="<?php echo $rowEstudio['ESTUDIOS']; ?>">
+                    <input type="text" id="ESTUDIOS" name="ESTUDIOS" required readonly value="<?php echo $rowEstudio['ESTUDIOS']; ?>">
                 </div>
                 <!-- Campo de texto para la Especialidad -->
                 <div class="form-group">
                     <label for="especialidad">Especialidad:</label>
-                    <input type="text" id="especialidad" name="ESPECIALIDAD" required readonly value="<?php echo $rowEstudio['ESPECIALIDAD']; ?>">
+                    <input type="text" id="ESPECIALIDAD" name="ESPECIALIDAD" required readonly value="<?php echo $rowEstudio['ESPECIALIDAD']; ?>">
                 </div>
             </div>
 
@@ -501,19 +563,17 @@
                 <!-- Campo de texto para el Documento -->
                 <div class="form-group">
                     <label for="documento">Documento:</label>
-                    <input type="text" id="documento" name="DOCUMENTO" required readonly value="<?php echo $rowEstudio['DOCUMENTO']; ?>">
+                    <input type="text" id="DOCUMENTO" name="DOCUMENTO" required readonly value="<?php echo $rowEstudio['DOCUMENTO']; ?>">
                 </div>
 
-                <!-- Campo de texto para el INSTITUTO -->
                 <div class="form-group">
-                    <label for="instituto">Documento:</label>
-                    <input type="text" id="instituto" name="INSTITUTO" required readonly value="<?php echo $rowEstudio['INSTITUTO']; ?>">
+                <label for="INSTITUTO" class="small-label">INSTITUTO:</label>
+                    <input type="text" id="INSTITUTO" name="INSTITUTO" required readonly value="<?php echo $rowEstudio['INSTITUTO']; ?>">
                 </div>
-
                 <!-- Campo de texto para el Curso Fuerza Metropolitana Estatal -->
                 <div class="form-group">
                     <label for="cfme">Curso Fuerza Metropolitana Estatal:</label>
-                    <input type="text" id="cfme" name="CFME" required readonly value="<?php echo $rowEstudio['CFME']; ?>">
+                    <input type="text" id="CFME" name="CFME" required readonly value="<?php echo $rowEstudio['CFME']; ?>">
                 </div>
             </div>
 
@@ -522,19 +582,17 @@
                 <!-- Campo de texto para el Grupo -->
                 <div class="form-group">
                     <label for="grupo">Grupo:</label>
-                    <input type="text" id="grupo" name="GRUPO" required readonly value="<?php echo $rowEstudio['GRUPO']; ?>">
-                </div>
-                    
-                <!-- Campo de texto para el Grupo -->
-                <div class="form-group">
-                    <label for="grupo">Grupo:</label>
-                    <input type="text" id="grupo" name="GRUPO" required readonly value="<?php echo $rowEstudio['GRUPO']; ?>">
+                    <input type="text" id="GRUPO" name="GRUPO" required readonly value="<?php echo $rowEstudio['GRUPO']; ?>">
                 </div>
 
+                <div class="form-group">
+                <label for="CCAC" class="small-label">CUENTA CON ACADEMIA:</label>
+                    <input type="text" id="CCAC" name="CCAC" required readonly value="<?php echo $rowEstudio['CCAC']; ?>">
+                </div>
                 <!-- Campo de texto para la Generación -->
                 <div class="form-group">
-                    <label for="ccac">Cuenta con academia:</label>
-                    <input type="text" id="ccac" name="CCAC" required readonly value="<?php echo $rowEstudio['CCAC']; ?>">
+                    <label for="generacion">Generación:</label>
+                    <input type="text" id="GENERACION" name="GENERACION" required readonly value="<?php echo $rowEstudio['GENERACION']; ?>">
                 </div>
             </div>
         </div>
@@ -545,12 +603,15 @@
                 <!-- Campo de texto para el Tipo de Grupo -->
                 <div class="form-group">
                     <label for="tipoGrupo">Tipo de Grupo:</label>
-                    <input type="text" id="tipoGrupo" name="TIPO_DE_GRUPO" required readonly value="<?php echo $rowEstudio['TIPO_DE_GRUPO']; ?>">
+                    <input type="text" id="TdG" name="TdG" required readonly value="<?php echo $rowEstudio['TdG']; ?>">
                 </div>
+  
+
+
                 <!-- Campo de texto para la Duración -->
                 <div class="form-group">
                     <label for="duracion">Duración:</label>
-                    <input type="text" id="duracion" name="DURACION" required readonly value="<?php echo $rowEstudio['DURACION']; ?>">
+                    <input type="text" id="DURACION" name="DURACION" required readonly value="<?php echo $rowEstudio['DURACION']; ?>">
                 </div>
             </div>
 
@@ -559,12 +620,12 @@
                 <!-- Campo de texto para el Tiempo de Servicio -->
                 <div class="form-group">
                     <label for="tiempoServicio">Tiempo de Servicio:</label>
-                    <input type="text" id="tiempoServicio" name="TIEMPO_DE_SERVICIO" required readonly value="<?php echo $rowEstudio['TIEMPO_DE_SERVICIO']; ?>">
+                    <input type="text" id="TDS" name="TDS" required readonly value="<?php echo $rowEstudio['TDS']; ?>">
                 </div>
                 <!-- Campo de texto para la Calificación de Armamento y Prácticas de Tiro -->
                 <div class="form-group">
                     <label for="calificacionArmamento">Calificación de Armamento y Prácticas de Tiro:</label>
-                    <input type="text" id="calificacionArmamento" name="CALIFICACION_ARMAMENTO" required readonly value="<?php echo $rowEstudio['CALIFICACION_ARMAMENTO']; ?>">
+                    <input type="text" id="CDAPT" name="CDAPT" required readonly value="<?php echo $rowEstudio['CDAPT']; ?>">
                 </div>
             </div>
 
@@ -573,12 +634,12 @@
                 <!-- Campo de texto para la Calificación de Puntería Avanzada (Fuerzas Especiales) -->
                 <div class="form-group">
                     <label for="calificacionPunteria">Calificación de Puntería Avanzada (Fuerzas Especiales):</label>
-                    <input type="text" id="calificacionPunteria" name="CALIFICACION_PUNTERIA" required readonly value="<?php echo $rowEstudio['CALIFICACION_PUNTERIA']; ?>">
+                    <input type="text" id="CPAF" name="CPAF" required readonly value="<?php echo $rowEstudio['CPAF']; ?>">
                 </div>
                 <!-- Campo de texto para Tallas y Domicilios Encuesta 2011 -->
                 <div class="form-group">
                     <label for="tallasDomicilios">Tallas y Domicilios Encuesta 2011:</label>
-                    <input type="text" id="tallasDomicilios" name="TALLAS_Y_DOMICILIOS" required readonly value="<?php echo $rowEstudio['TALLAS_Y_DOMICILIOS']; ?>">
+                    <input type="text" id="TallasDomicilios" name="TallasDomicilios" required readonly value="<?php echo $rowEstudio['TallasDomicilios']; ?>">
                 </div>
             </div>
 
@@ -587,31 +648,33 @@
                 <!-- Campo de texto para el Nivel de Calificación -->
                 <div class="form-group">
                     <label for="nivelCalificacion">Nivel de Calificación:</label>
-                    <input type="text" id="nivelCalificacion" name="NIVEL_DE_CALIFICACION" required readonly value="<?php echo $rowEstudio['NIVEL_DE_CALIFICACION']; ?>">
+                    <input type="text" id="NDC" name="NDC" required readonly value="<?php echo $rowEstudio['NDC']; ?>">
                 </div>
                 <!-- Campo de texto para Reprobo Examen -->
                 <div class="form-group">
                     <label for="reproboExamen">Reprobo Examen:</label>
-                    <input type="text" id="reproboExamen" name="REPROBO_EXAMEN" required readonly value="<?php echo $rowEstudio['REPROBO_EXAMEN']; ?>">
+                    <input type="text" id="REPROBO_EXAMEN" name="REPROBO_EXAMEN" required readonly value="<?php echo $rowEstudio['REPROBO_EXAMEN']; ?>">
                 </div>
                 <!-- Campo de texto para Egresado de la Academia -->
                 <div class="form-group">
                     <label for="egresadoAcademia">Egresado de la Academia:</label>
-                    <input type="text" id="egresadoAcademia" name="EGRESADO_DE_LA_ACADEMIA" required readonly value="<?php echo $rowEstudio['EGRESADO_DE_LA_ACADEMIA']; ?>">
+                    <input type="text" id="EDLC" name="EDLC" required readonly value="<?php echo $rowEstudio['EDLC']; ?>">
                 </div>
                 <!-- Campo de texto para Personal Egresado de la Academia Guardia Civil Estatal 1era Generación -->
                 <div class="form-group">
                     <label for="personalEgresadoAcademia">Personal Egresado de la Academia Guardia Civil Estatal 1era Generación:</label>
-                    <input type="text" id="personalEgresadoAcademia" name="PERSONAL_EGRESADO_ACADEMIA" required readonly value="<?php echo $rowEstudio['PERSONAL_EGRESADO_ACADEMIA']; ?>">
+                    <input type="text" id="PEAG" name="PEAG" required readonly value="<?php echo $rowEstudio['PEAG']; ?>">
                 </div>
                 <!-- Campo de texto para Curso Perito Calif -->
                 <div class="form-group">
                     <label for="cursoPeritoCalif">Curso Perito Calif:</label>
-                    <input type="text" id="cursoPeritoCalif" name="CURSO_PERITO_CALIF" required readonly value="<?php echo $rowEstudio['CURSO_PERITO_CALIF']; ?>">
+                    <input type="text" id="CPC" name="CPC" required readonly value="<?php echo $rowEstudio['CPC']; ?>">
                 </div>
             </div>
         </div>
 
+        <!-- Botón de guardar Datos de Estudio -->
+        <input type="submit" name="guardar" value="Guardar Datos de Estudio"><br><br><br>
     </form>
 </section>
 
@@ -706,6 +769,9 @@
                 </div>
             </div>
         </div>
+
+        <!-- Botón de guardar Datos Militares -->
+        <input type="submit" name="guardar" value="Guardar Datos Militares"><br><br><br>
     </form>
 </section>
             <?php
@@ -1176,7 +1242,7 @@
                 <br><br>
 
                 <label for="oficinaComision">Oficina de Comisión:</label>
-                <input type="text" id="oficinaComision" name="OF_COMISION" required readonly value="<?php echo $rowComisiones['OF_COMISION']; ?>">
+                <input type="text" id="oficinaComision" name="OF_COMISION" required readonly value="<?php echo $rowComisiones['OF_COMISIóN']; ?>">
                 <br><br>
             </div>
         </div>
@@ -1205,7 +1271,7 @@
     if ($resultMovimientosASDC->num_rows > 0) {
         $rowMovimientosASDC = $resultMovimientosASDC->fetch_assoc();
         ?>
-            <section>
+ <section>
     <h2>Datos de Movimientos por Cambio ASDC</h2>
     <!-- Formulario de Datos de Movimientos por Cambio ASDC en 4 columnas -->
     <form action="" method="POST">
@@ -1233,11 +1299,11 @@
             <div style="flex: 1; margin-right: 10px;">
                 <!-- Columna 3 -->
                 <label for="acuerdoComputo">Acuerdo de Cómputo:</label>
-                <input type="text" id="acuerdoComputo" name="ADC" required readonly value="<?php echo $rowMovimientosASDC['ADC']; ?>">
+                <imput class="form-control" id="acuerdoComputo" name="ADC" required readonly>
                 <br><br>
 
                 <label for="acuerdoSSP">Acuerdo SSP:</label>
-                <input type="text" id="acuerdoSSP" name="ASS" required readonly value="<?php echo $rowMovimientosASDC['ASS']; ?>">
+                <imput class="form-control" id="acuerdoSSP" name="ASS" required readonly>
                 <br><br>
             </div>
         </div>
@@ -1610,22 +1676,71 @@
         $conn->close();
         ?>
 
-        <form action="php2/cons.php" method="POST">
-            <!-- Campo oculto para NO_EMPLEADO -->
-            <input type="hidden" name="NO_EMPLEADO" value="<?php echo $noEmpleado; ?>">
+           <!-- Campo textarea para CONSIDERACIONES -->
+                <div class="form-group">
+            <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
+            <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
+        </div>
 
-            <!-- Campo textarea para CONSIDERACIONES -->
-            <div class="form-group">
-                <label for="consideraciones" id="lconsideraciones">Consideraciones:</label>
-                <textarea rows="10" cols="50" id="consideraciones" name="CONSIDERACIONES"><?php echo $rowGenerales['CONSIDERACIONES']; ?></textarea>
-            </div>
+        <!-- Botón de guardar CONSIDERACIONES -->
+        <input type="submit" name="guardar" value="Guardar Observaciones" class="custom-button"><br><br><br>
+           <!-- Botón "regresar" -->
+    <a href="pag1.php" class="btn btn-primary">REGRESAR</a>
 
-            <!-- Botón de guardar CONSIDERACIONES -->
-            <input type="submit" name="guardar" value="Guardar Observaciones" class="custom-button">
-        </form>
+    <form action="gerar.php" method="POST">
+    <label for="datos_generales">Datos Generales</label>
+    <input type="checkbox" name="formularios[]" value="datos_generales">
+    <label for="datos_familia">Datos de Familia</label>
+    <input type="checkbox" name="formularios[]" value="datos_familia">
+    <label for ="valucion_anual_desempeño">Evalucion Anual de Desempeño</label>
+    <input type="checkbox" name="formularios[]" value="valucion_anual_desempeño">
+    <label for="datos_de_estudio">Datos de Estudio</label>
+    <input type="checkbox" name="formularios[]" value="datos_de_estudio">
+    <label for="militares">Militares</label>
+    <input type="checkbox" name="formularios[]" value="militares">
+    <label for="afiliados">Afiliados</label>
+    <input type="checkbox" name="formularios[]" value="afiliados">
+    <label for="datos_del_empleado">Datos del Empleado</label>
+    <input type="checkbox" name="formularios[]" value="datos_del_empleado">
+    <label for="dato_laborales_personal_c">Dato Laborales Personal</label>
+    <input type="checkbox" name="formularios[]" value="dato_laborales_personal_c">
+    <label for="indumentaria">Indumentaria</label>
+    <input type="checkbox" name="formularios[]" value="indumentaria">
+    <label for="comisiones">Comisiones</label>
+    <input type="checkbox" name="formularios[]" value="comisiones">
+    <label for="cambios_adscripcion">Cambios Adscripcion</label>
+    <input type="checkbox" name="formularios[]" value="cambios_adscripcion">
+    <label for="datos_del_empleo">Datos del Empleo</label>
+    <input type="checkbox" name="formularios[]" value="datos_del_empleo">
+    <label for="categorizacion">Categorizacion</label>
+    <input type="checkbox" name="formularios[]" value="categorizacion">
+    <label for="cursos_reconocimiento_cuerso">Cursos Reconocimiento Cuerso</label>
+    <input type="checkbox" name="formularios[]" value="cursos_reconocimiento_cuerso">
+    <label for="incapacida">Incapacida</label>
+    <input type="checkbox" name="formularios[]" value="incapacida">
+    <button type="submit" name="generar_pdf">Generar PDF</button>
+</form>
 
-        <!-- Botón "Cerrar" -->
-    <a href="pag1.php" class="btn btn-primary">Cerrar</a>
     </div>
+    <script>
+function searchLabels() {
+    var input, filter, labels, label, i, txtValue;
+    input = document.getElementById('searchField');
+    filter = input.value.toUpperCase();
+    labels = document.querySelectorAll('label[for]');
+
+    for (i = 0; i < labels.length; i++) {
+        label = labels[i];
+        txtValue = label.textContent || label.innerText;
+
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            label.parentElement.style.display = '';
+        } else {
+            label.parentElement.style.display = 'none';
+        }
+    }
+}
+
+</script>
 </body>
 </html>

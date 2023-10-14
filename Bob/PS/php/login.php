@@ -1,4 +1,4 @@
-<?php
+<?php 
 require 'database.php'; // Archivo que contiene la conexión a la base de datos
 
 // Inicia la sesión 
@@ -22,56 +22,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         $contrasena_hash = $row['pass'];
 
+        // Verificar la contraseña
         if (password_verify($contrasena, $contrasena_hash)) {
             // Inicio de sesión exitoso
             $_SESSION['user_id'] = $row['id'];
 
-            // Cerrar la declaración $stmt antes de la redirección
-            $stmt->close();
-
-            // Consultar el nivel de usuario desde la base de datos
-            $sqlNivel = "SELECT nivel FROM usuarios WHERE id = ?";
-            $stmtNivel = $conn->prepare($sqlNivel);
-            $stmtNivel->bind_param("i", $_SESSION['user_id']);
-            $stmtNivel->execute();
-            $resultNivel = $stmtNivel->get_result();
-
-            if ($resultNivel->num_rows == 1) {
-                $rowNivel = $resultNivel->fetch_assoc();
-                $nivelUsuario = $rowNivel['nivel'];
-
-                // Redirigir según el nivel de usuario
-                if ($nivelUsuario == "Avanzado") {
-                    header("Location: pag1.php");
-                    exit();
-                } elseif ($nivelUsuario == "Consultor") {
-                    header("Location: Consultor/pag1_con.php");
-                    exit();
-                } else {
-                    // Nivel de usuario desconocido o no manejado
-                    $error_message = "Nivel de usuario no válido";
-                    //header("Location: index.php");
-                    exit();
-                }
-            } else {
-                // No se pudo obtener el nivel de usuario, redirige a una página predeterminada
-                $error_message = "Error al obtener el nivel de usuario";
-                //header("Location: index.php");
-                exit();
-            }
+            // Redirige al usuario a pag1.html
+            header("Location: pag1.php");
+            exit();
         } else {
             // Contraseña incorrecta
-            $error_message = "Contraseña incorrecta";
-            //header("Location: index.php?error=Contraseña incorrecta");
+            header("Location: login.php?error=Contraseña incorrecta");
             exit();
         }
     } else {
         // Usuario no encontrado
-        $error_message = "Usuario no encontrado";
-        //header("Location: index.php?error=Usuario no encontrado");
+        header("Location: login.php?error=Usuario no encontrado");
         exit();
     }
 
+    $stmt->close();
 }
 
 $conn->close();
