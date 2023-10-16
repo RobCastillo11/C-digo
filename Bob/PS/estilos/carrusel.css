@@ -1,0 +1,37 @@
+/* Estilos para el carrusel */
+#fotoCarousel {
+    border: 3px solid #006400; /* Borde verde oscuro para el carrusel */
+    border-radius: 10px; /* Bordes redondeados */
+    max-width: 360px; /* Ancho máximo del carrusel */
+    margin: 0 auto; /* Centra el carrusel horizontalmente */
+    text-align: center; /* Centra el contenido del carrusel */
+}
+
+.carousel-inner {
+    max-height: 360px; /* Altura máxima del carrusel */
+}
+
+.carousel-item img {
+    width: 100%; /* Asegura que las imágenes del carrusel ocupen todo el ancho */
+    max-height: 100%; /* Altura máxima del carrusel igual para todas las imágenes */
+    object-fit: contain; /* Escala las imágenes para ajustarse al contenedor sin recortarlas */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    text-align: center; /* Centra las flechas horizontalmente */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para las flechas del carrusel */
+    display: inline-block; /* Hace que las flechas sean elementos en línea */
+    margin: 5px; /* Espacio entre las flechas y las imágenes */
+}
+
+/* Estilos para el banner */
+#inicio {
+    background-color: #FFF;
+    position: relative;
+    text-align: center; /* Centra el contenido del banner horizontalmente */
+}

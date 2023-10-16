@@ -29,24 +29,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Actualizar los datos en la base de datos
     $sqlUpdate = "UPDATE datos_de_estudio SET 
-        TERMINACION_DE_ESTUDIO = '$terminacionEstudio',
+        TDE = '$terminacionEstudio',
         ESTUDIOS = '$estudios',
         ESPECIALIDAD = '$especialidad',
         DOCUMENTO = '$documento',
         CFME = '$cfme',
         GRUPO = '$grupo',
         GENERACION = '$generacion',
-        TIPO_DE_GRUPO = '$tipoGrupo',
+        TdG = '$tipoGrupo',
         DURACION = '$duracion',
-        TIEMPO_DE_SERVICIO = '$tiempoServicio',
-        CALIFICACION_ARMAMENTO = '$calificacionArmamento',
-        CALIFICACION_PUNTERIA = '$calificacionPunteria',
-        TALLAS_Y_DOMICILIOS = '$tallasDomicilios',
-        NIVEL_DE_CALIFICACION = '$nivelCalificacion',
+        TDS = '$tiempoServicio',
+        CDAPT = '$calificacionArmamento',
+        CPAF = '$calificacionPunteria',
+        TallasDomicilios = '$tallasDomicilios',
+        NDC = '$nivelCalificacion',
         REPROBO_EXAMEN = '$reproboExamen',
-        EGRESADO_DE_LA_ACADEMIA = '$egresadoAcademia',
-        PERSONAL_EGRESADO_ACADEMIA = '$personalEgresadoAcademia',
-        CURSO_PERITO_CALIF = '$cursoPeritoCalif'
+        EDLC = '$egresadoAcademia',
+        PEAG = '$personalEgresadoAcademia',
+        CPC = '$cursoPeritoCalif'
         WHERE NO_EMPLEADO = '$noEmpleado'";
 
     if ($conn->query($sqlUpdate) === TRUE) {

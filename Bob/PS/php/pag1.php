@@ -9,8 +9,6 @@ session_start(); // Inicia la sesión
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../estilos/styles1.css">
-    
-    <!-- Agrega tus propios estilos y scripts aquí -->
 </head>
 <body>
 
@@ -25,12 +23,12 @@ session_start(); // Inicia la sesión
 
 <nav>
     <ul class="pestanas">
+        <li><a href="javascript:void(0);" onclick="mostrarInicio()">Inicio</a></li>
         <li><a href="javascript:void(0);" onclick="mostrarRegistro()">Registro</a></li>
         <li><a href="javascript:void(0);" onclick="mostrarConsulta()">Consulta</a></li>
         <li class="logout"><a href="logout.php">Cerrar Sesión</a></li>
     </ul>
 </nav>
-
 
 <div id="mensajeResultado1"></div> <!-- Para el formulario 1 -->
 <div id="mensajeResultado2"></div>
@@ -49,6 +47,48 @@ session_start(); // Inicia la sesión
 <div id="mensajeResultado15"></div>
 
 <div id="contenido">
+    <!-- INICIO BANNER -->
+    <div id="inicio">
+        <!-- Carrusel de fotos -->
+        <div id="fotoCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../recursos/img/1.jpeg" alt="Imagen 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="../recursos/img/2.jpg" alt="Imagen 2">
+                </div>
+                <!-- (Otros elementos del carrusel) -->
+            </div>
+            <ol class="carousel-indicators">
+                <li data-target="#fotoCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#fotoCarousel" data-slide-to="1"></li>
+                <!-- (Otros indicadores del carrusel) -->
+            </ol>
+            <a class="carousel-control-prev" href="#fotoCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#fotoCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" ariahidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+        </div>
+
+        <!-- Mensaje -->
+        <div class="mensaje">
+            <p>Desde que tomó protesta como presidente municipal, Enrique Galindo Ceballos se comprometió
+                con las y los ciudadanos a transformar la seguridad pública de la ciudad. Por eso hoy nace la
+                <span class="mayusculas">Nueva Secretaría de Seguridad y Protección Ciudadana.</span></p>
+
+            <p>Es un nuevo esquema de comunidad segura que implica una nueva forma de hacer las cosas, con
+                una
+                nueva estructura y una nueva mentalidad. Los ciudadanos participan activamente en la
+                construcción de <span class="mayusculas">COMUNIDADES SEGURAS</span>, con lo que se evoluciona de lo que conocemos como
+                seguridad
+                pública, a <span class="mayusculas">SEGURIDAD CIUDADANA.</span></p>
+        </div>
+    </div>
 
     <div id="registro" class="pestaña contenido-oculto">
         <div class="tab-content">
@@ -129,20 +169,29 @@ session_start(); // Inicia la sesión
     </div>
     <script>
       // Función para mostrar el contenido de Registro
-      function mostrarRegistro() {
+      
+        function mostrarInicio() {
+            document.getElementById('inicio').style.display = 'block';
+            document.getElementById('registro').style.display = 'none';
+            document.getElementById('consulta').style.display = 'none';
+        }
+      
+        function mostrarRegistro() {
+            document.getElementById('inicio').style.display = 'none';
             document.getElementById('registro').style.display = 'block';
             document.getElementById('consulta').style.display = 'none';
         }
 
         // Función para mostrar el contenido de Consulta
         function mostrarConsulta() {
+            document.getElementById('inicio').style.display = 'none';
             document.getElementById('consulta').style.display = 'block';
             document.getElementById('registro').style.display = 'none';
         }
 
         // Al cargar la página, asegúrate de que solo se muestre el contenido de Registro inicialmente
         window.onload = function () {
-            mostrarRegistro();
+            mostrarInicio();
         };
 
     </script>
