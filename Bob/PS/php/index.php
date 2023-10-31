@@ -56,13 +56,19 @@ if (isset($_GET['registroExitoso']) && $_GET['registroExitoso'] == 'true') {
       <img src="../imagenes/x.png">
     </span>
     <form method="POST" action="procesar_registro.php">
-      <input type="text" name="nombre" placeholder="Nombre">
-      <input type="text" name="apellido" placeholder="Apellido">
-      <input type="email" name="email" placeholder="E-mail">
-      <input type="text" name="nombre_usuario" placeholder="Usuario">
-      <input type="password" name="pass" placeholder="Password">
-      <button type="submit">Registrarse</button>
-    </form>
+    <input type="text" name="nombre" placeholder="Nombre">
+    <input type="text" name="apellido" placeholder="Apellido">
+    <input type="email" name="email" placeholder="E-mail">
+    <input type="text" name="nombre_usuario" placeholder="Usuario">
+    <input type="password" name="pass" placeholder="Password">
+    <label for="tipo_usuario">Tipo de Usuario:</label>
+    <select name="tipo_usuario" id="tipo_usuario">
+      <option value="Avanzado">Avanzado</option>
+      <option value="Consultor">Consultor</option>
+    </select>
+    <button type="submit">Registrarse</button>
+</form>
+
   </div>
 
  <!-- Recuperar contraseña -->
@@ -107,7 +113,3 @@ if (isset($_GET['registroExitoso']) && $_GET['registroExitoso'] == 'true') {
 
 </body>
 </html>
-
-
-
-
